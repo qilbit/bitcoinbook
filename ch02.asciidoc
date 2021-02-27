@@ -1,62 +1,62 @@
 [[ch02_bitcoin_overview]]
-== How Bitcoin Works
+== Como o Bitcoin Funciona
 
-=== Transactions, Blocks, Mining, and the Blockchain
+=== Transações, Blocos, Mineração e Blockchain
 
-((("bitcoin", "overview of", id="BCover02")))((("central trusted authority")))((("decentralized systems", "bitcoin overview", id="DCSover02")))The bitcoin system, unlike traditional banking and payment systems, is based on decentralized trust. Instead of a central trusted authority, in bitcoin, trust is achieved as an emergent property from the interactions of different participants in the bitcoin system. In this chapter, we will examine bitcoin from a high level by tracking a single transaction through the bitcoin system and watch as it becomes "trusted" and accepted by the bitcoin mechanism of distributed consensus and is finally recorded on the blockchain, the distributed ledger of all transactions. Subsequent chapters will delve into the technology behind transactions, the network, and mining.
+((("bitcoin", "overview of", id="BCover02")))((("central trusted authority")))((("decentralized systems", "bitcoin overview", id="DCSover02")))O sistema bitcoin, ao contrário dos sistemas bancários e de pagamento tradicionais, é baseado na confiança descentralizada. Em vez de uma autoridade central confiável, no bitcoin, a confiança é alcançada como uma propriedade emergente a partir das interações de diferentes participantes no sistema bitcoin. Neste capítulo, examinaremos o bitcoin de um alto nível rastreando uma única transação através do sistema bitcoin e observaremos como ele se torna "confiável" e aceito pelo mecanismo de consenso distribuído do bitcoin e, finalmente, é registrado no blockchain, o livro-razão distribuído de todas as transações. Os capítulos subsequentes se aprofundarão na tecnologia por trás das transações, a rede e a mineração.
 
-==== Bitcoin Overview
+==== Visão Geral do Bitcoin
 
-In the overview diagram shown in <<bitcoin-overview>>, we see that the bitcoin system consists of users with wallets containing keys, transactions that are propagated across the network, and miners who produce (through competitive computation) the consensus blockchain, which is the authoritative ledger of all transactions.
+No diagrama de visão geral mostrado em <<bitcoin-overview>>, vemos que o sistema bitcoin consiste em usuários com carteiras contendo chaves, transações que são propagadas pela rede e mineradores que produzem (por meio de computação competitiva) a blockchain de consenso, que é o registro oficial de todas as transações.
 
 
-((("blockchain explorer sites")))Each example in this chapter is based on an actual transaction made on the bitcoin network, simulating the interactions between the users (Joe, Alice, Bob, and Gopesh) by sending funds from one wallet to another. While tracking a transaction through the bitcoin network to the blockchain, we will use a _blockchain explorer_ site to visualize each step. A blockchain explorer is a web application that operates as a bitcoin search engine, in that it allows you to search for addresses, transactions, and blocks and see the relationships and flows between them.
+((("blockchain explorer sites")))Cada exemplo neste capítulo é baseado em uma transação real feita na rede bitcoin, simulando as interações entre os usuários (Joe, Alice, Bob e Gopesh) enviando fundos de uma carteira para outra. Ao rastrear uma transação através da rede bitcoin para o blockchain, usaremos um site _blockchain explorer_ para visualizar cada etapa. Um explorador de blockchain é um aplicativo web que opera como um mecanismo de busca de bitcoin, permitindo que você pesquise endereços, transações e blocos e veja as relações e fluxos entre eles.
 
 [[bitcoin-overview]]
-.Bitcoin overview
+.Visão Geral do Bitcoin
 image::images/mbc2_0201.png["Bitcoin Overview"]
 
-((("Bitcoin Block Explorer")))((("BlockCypher Explorer")))((("blockchain.info")))((("BitPay Insight")))Popular blockchain explorers include:
+((("Bitcoin Block Explorer")))((("BlockCypher Explorer")))((("blockchain.info")))((("BitPay Insight")))Exploradores de blockchain populares incluem:
 
 * https://live.blockcypher.com[BlockCypher Explorer]
 * https://blockchain.info[blockchain.info]
 * https://insight.bitpay.com[BitPay Insight]
 * https://blockstream.info[Blockstream Explorer]
 
-Each of these has a search function that can take a bitcoin address, transaction hash, block number, or block hash and retrieve corresponding information from the bitcoin network. With each transaction or block example, we will provide a URL so you can look it up yourself and study it in detail.
+Cada um deles tem uma função de pesquisa que pode pegar um endereço de bitcoin, hash de transação, número de bloco ou hash de bloco e recuperar informações correspondentes da rede bitcoin. Com cada transação ou exemplo de bloco, forneceremos um URL para que você possa pesquisá-lo e estudá-lo em detalhes.
 
 
 [[cup_of_coffee]]
-==== Buying a Cup of Coffee
+==== Comprando Uma Xícara de Café
 
-((("use cases", "buying coffee", id="UCcoffee02")))Alice, introduced in the previous chapter, is a new user who has just acquired her first bitcoin. In <<getting_first_bitcoin>>, Alice met with her friend Joe to exchange some cash for bitcoin. The transaction created by Joe funded Alice's wallet with 0.10 BTC. Now Alice will make her first retail transaction, buying a cup of coffee at Bob's coffee shop in Palo Alto, California.
+((("use cases", "buying coffee", id="UCcoffee02")))Alice, apresentada no capítulo anterior, é uma nova usuária que acaba de adquirir seu primeiro bitcoin. No <<getting_first_bitcoin>>, Alice se encontrou com seu amigo Joe para trocar algum dinheiro por bitcoin. A transação criada por Joe financiou a carteira de Alice com 0,10 BTC. Agora Alice fará sua primeira transação de varejo, comprando uma xícara de café na cafeteria Bob's em Palo Alto, Califórnia.
 
-((("exchange rates", "determining")))Bob's Cafe recently started accepting bitcoin payments by adding a bitcoin option to its point-of-sale system. The prices at Bob's Cafe are listed in the local currency (US dollars), but at the register, customers have the option of paying in either dollars or bitcoin. Alice places her order for a cup of coffee and Bob enters it into the register, as he does for all transactions.  The point-of-sale system automatically converts the total price from US dollars to bitcoin at the prevailing market rate and displays the price in both currencies:
+((("exchange rates", "determining")))Bob's Cafe recentemente começou a aceitar pagamentos de bitcoin adicionando uma opção de bitcoin ao seu sistema de ponto de venda. Os preços no Bob's Cafe são listados na moeda local (dólares americanos), mas no caixa, os clientes têm a opção de pagar em dólares ou bitcoin. Alice faz seu pedido de uma xícara de café e Bob o registra no caixa, como faz para todas as transações. O sistema do ponto de venda converte automaticamente o preço total de dólares americanos para bitcoin à taxa de mercado em vigor e exibe o preço em ambas as moedas:
 
 ----
 Total:
-$1.50 USD
-0.015 BTC
+$1,50 USD
+0,015 BTC
 ----
 
 
-((("millibits")))Bob says, "That's one-dollar-fifty, or fifteen millibits."
+((("millibits")))Bob diz: "Isso é um dólar e cinquenta, ou quinze milibits."
 
-((("payment requests")))((("QR codes", "payment requests")))Bob's point-of-sale system will also automatically create a special QR code containing a _payment request_ (see <<payment-request-QR>>).
+((("payment requests")))((("QR codes", "payment requests")))O sistema de ponto de venda de Bob também criará automaticamente um código QR especial contendo uma _solicitação de pagamento_ (veja <<payment-request-QR>>).
 
-Unlike a QR code that simply contains a destination bitcoin address, a payment request is a QR-encoded URL that contains a destination address, a payment amount, and a generic description such as "Bob's Cafe." This allows a bitcoin wallet application to prefill the information used to send the payment while showing a human-readable description to the user. You can scan the QR code with a bitcoin wallet application to see what Alice would see.
+Ao contrário de um código QR que simplesmente contém um endereço de bitcoin de destino, uma solicitação de pagamento é um URL codificado por QR que contém um endereço de destino, uma quantia de pagamento e uma descrição genérica como "Café do Bob". Isso permite que um aplicativo de carteira bitcoin preencha previamente as informações usadas para enviar o pagamento enquanto mostra uma descrição legível para o usuário. Você pode escanear o código QR com um aplicativo de carteira bitcoin para ver o que Alice veria.
 
 
 [[payment-request-QR]]
-.Payment request QR code
+.Código QR de solicitação de pagamento
 image::images/mbc2_0202.png["payment-request"]
 
 [TIP]
 ====
-((("QR codes", "warnings and cautions")))((("transactions", "warnings and cautions")))((("warnings and cautions", "avoid sending money to addresses appearing in book")))Try to scan this with your wallet to see the address and amount but DO NOT SEND MONEY.
+((("QR codes", "warnings and cautions")))((("transactions", "warnings and cautions")))((("warnings and cautions", "avoid sending money to addresses appearing in book")))Tente escanear com sua carteira para ver o endereço e o valor, mas NÃO ENVIE DINHEIRO.
 ====
 [[payment-request-URL]]
-.The payment request QR code encodes the following URL, defined in BIP-21:
+.O código QR da solicitação de pagamento codifica a seguinte URL, definida no BIP-21:
 ----
 bitcoin:1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA?
 amount=0.015&
@@ -71,87 +71,87 @@ A label for the recipient address: "Bob's Cafe"
 A description for the payment: "Purchase at Bob's Cafe"
 ----
 
-Alice uses her smartphone to scan the barcode on display. Her smartphone shows a payment of +0.0150 BTC+ to +Bob's Cafe+ and she selects Send to authorize the payment. Within a few seconds (about the same amount of time as a credit card authorization), Bob sees the transaction on the register, completing the transaction.
+Alice usa seu smartphone para ler o código de barras em exibição. Seu smartphone mostra um pagamento de +0,0150 BTC+ para +Bob's Cafe+ e ela seleciona Enviar para autorizar o pagamento. Dentro de alguns segundos (aproximadamente o mesmo tempo que uma autorização de cartão de crédito), Bob vê a transação no registro, completando a transação.
 
-In the following sections, we will examine this transaction in more detail. We'll see how Alice's wallet constructed it, how it was propagated across the network, how it was verified, and finally, how Bob can spend that amount in subsequent transactions.
+Nas seções a seguir, examinaremos essa transação com mais detalhes. Veremos como a carteira de Alice a construiu, como foi propagada pela rede, como foi verificada e, finalmente, como Bob pode gastar essa quantia em transações subsequentes.
 
 [NOTE]
 ====
-((("fractional values")))((("milli-bitcoin")))((("satoshis")))The bitcoin network can transact in fractional values, e.g., from millibitcoin (1/1000th of a bitcoin) down to 1/100,000,000th of a bitcoin, which is known as a satoshi.  Throughout this book, we’ll use the term “bitcoin” to refer to any quantity of bitcoin currency, from the smallest unit (1 satoshi) to the total number (21,000,000) of all bitcoin that will ever be mined.
+((("fractional values")))((("milli-bitcoin")))((("satoshis")))A rede bitcoin pode transacionar em valores fracionários, por exemplo, de milibitcoin (1/1000 de um bitcoin) até 1/100.000.000 de um bitcoin, que é conhecido como satoshi. Ao longo deste livro, usaremos o termo "bitcoin" para se referir a qualquer quantidade de moeda bitcoin, desde a menor unidade (1 satoshi) ao número total (21.000.000) de todos os bitcoins que serão extraídos.
 ====
 
-You can examine Alice's transaction to Bob's Cafe on the blockchain using a block explorer site (<<view_alice_transaction>>):
+Você pode examinar a transação de Alice com o Bob's Cafe no blockchain usando um site explorador de blocos (<<view_alice_transaction>>):
 
 [[view_alice_transaction]]
-.View Alice's transaction on https://blockchain.info/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2[blockchain.info]
+.Ver a transação de Alice em https://blockchain.info/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2[blockchain.info]
 ====
 ----
 https://blockchain.info/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2
 ----
 ====
 
-=== Bitcoin Transactions
+=== Transações Bitcoin
 
-((("transactions", "defined")))In simple terms, a transaction tells the network that the owner of some bitcoin value has authorized the transfer of that value to another owner. The new owner can now spend the bitcoin by creating another transaction that authorizes the transfer to another owner, and so on, in a chain of ownership.
+((("transactions", "defined")))Em termos simples, uma transação informa à rede que o proprietário de algum valor de bitcoin autorizou a transferência desse valor para outro proprietário. O novo proprietário agora pode gastar o bitcoin criando outra transação que autoriza a transferência para outro proprietário e assim por diante, em uma cadeia de propriedade.
 
-==== Transaction Inputs and Outputs
+==== Entradas e Saídas de Transações
 
-((("transactions", "overview of", id="Tover02")))((("outputs and inputs", "basics of")))Transactions are like lines in a double-entry bookkeeping ledger.  Each transaction contains one or more "inputs," which are like debits against a bitcoin account. On the other side of the transaction, there are one or more "outputs," which are like credits added to a bitcoin account. ((("fees", "transaction fees")))The inputs and outputs (debits and credits) do not necessarily add up to the same amount. Instead, outputs add up to slightly less than inputs and the difference represents an implied _transaction fee_, which is a small payment collected by the miner who includes the transaction in the ledger. A bitcoin transaction is shown as a bookkeeping ledger entry in <<transaction-double-entry>>.
+((("transactions", "overview of", id="Tover02")))((("outputs and inputs", "basics of")))As transações são como linhas em um livro-razão de dupla entrada. Cada transação contém uma ou mais "entradas", que são como débitos em uma conta bitcoin. Do outro lado da transação, há uma ou mais "saídas", que são como créditos adicionados a uma conta bitcoin. ((("fees", "transaction fees")))As entradas e saídas (débitos e créditos) não somam necessariamente o mesmo valor. Em vez disso, as saídas somam um pouco menos do que as entradas e a diferença representa uma _taxa de transação_ implícita, que é um pequeno pagamento cobrado pelo minerador que inclui a transação no livro-razão. Uma transação de bitcoin é mostrada como uma entrada do livro de contabilidade na <<transaction-double-entry>>.
 
-The transaction also contains proof of ownership for each amount of bitcoin (inputs) whose value is being spent, in the form of a digital signature from the owner, which can be independently validated by anyone. ((("spending bitcoin", "defined")))In bitcoin terms, "spending" is signing a transaction that transfers value from a previous transaction over to a new owner identified by a bitcoin address.
+A transação também contém o comprovante de propriedade de cada quantidade de bitcoin (insumos) cujo valor está sendo gasto, na forma de uma assinatura digital do proprietário, que pode ser validada de forma independente por qualquer pessoa. ((("spending bitcoin", "defined")))Em termos de bitcoin, "gastar" é assinar uma transação que transfere o valor de uma transação anterior para um novo proprietário identificado por um endereço de bitcoin.
 
 [[transaction-double-entry]]
-.Transaction as double-entry bookkeeping
+.Transação como escrituração de partidas dobradas
 image::images/mbc2_0203.png["Transaction Double-Entry"]
 
-==== Transaction Chains
+==== Cadeias de Transações
 
-((("chain of transactions")))Alice's payment to Bob's Cafe uses a previous transaction's output as its input. In the previous chapter, Alice received bitcoin from her friend Joe in return for cash. That transaction created a bitcoin value locked by Alice's key. Her new transaction to Bob's Cafe references the previous transaction as an input and creates new outputs to pay for the cup of coffee and receive change. The transactions form a chain, where the inputs from the latest transaction correspond to outputs from previous transactions. Alice's key provides the signature that unlocks those previous transaction outputs, thereby proving to the bitcoin network that she owns the funds. She attaches the payment for coffee to Bob's address, thereby "encumbering" that output with the requirement that Bob produces a signature in order to spend that amount. This represents a transfer of value between Alice and Bob. This chain of transactions, from Joe to Alice to Bob, is illustrated in <<blockchain-mnemonic>>.
+((("chain of transactions")))O pagamento de Alice ao Bob's Cafe usa a saída de uma transação anterior como entrada. No capítulo anterior, Alice recebeu bitcoin de seu amigo Joe em troca de dinheiro. Essa transação criou um valor de bitcoin bloqueado pela chave de Alice. Sua nova transação com o Bob's Cafe faz referência à transação anterior como uma entrada e cria novas saídas para pagar pela xícara de café e receber o troco. As transações formam uma cadeia, onde as entradas da última transação correspondem às saídas de transações anteriores. A chave de Alice fornece a assinatura que desbloqueia as saídas de transações anteriores, provando assim à rede bitcoin que ela possui os fundos. Ela anexa o pagamento do café ao endereço de Bob, "onerando" essa saída com a exigência de que Bob produza uma assinatura para gastar aquela quantia. Isso representa uma transferência de valor entre Alice e Bob. Esta cadeia de transações, de Joe a Alice e Bob, é ilustrada em <<blockchain-mnemonic>>.
 
 [[blockchain-mnemonic]]
-.A chain of transactions, where the output of one transaction is the input of the next transaction
+.Uma cadeia de transações, onde a saída de uma transação é a entrada da próxima transação
 image::images/mbc2_0204.png["Transaction chain"]
 
-==== Making Change
+==== Fazendo Mudanças
 
-((("change, making")))((("change addresses")))((("addresses", "change addresses")))Many bitcoin transactions will include outputs that reference both an address of the new owner and an address of the current owner, called the _change_ address. This is because transaction inputs, like currency notes, cannot be divided. If you purchase a $5 US dollar item in a store but use a $20 US dollar bill to pay for the item, you expect to receive $15 US dollars in change. The same concept applies to bitcoin transaction inputs. If you purchased an item that costs 5 bitcoin but only had a 20 bitcoin input to use, your wallet would create a single transaction that sends two outputs, one output of 5 bitcoin to the store owner and one output of 15 bitcoin back to yourself as change (less any applicable transaction fee). Importantly, the change address does not have to be the same address as that of the input and for privacy reasons is often a new address from the owner's wallet.
+((("change, making")))((("change addresses")))((("addresses", "change addresses")))Muitas transações bitcoin incluirão saídas que fazem referência a um endereço do novo proprietário e um endereço do proprietário atual, chamado de endereço de _mudança_. Isso ocorre porque as entradas de transação, como notas de moeda, não podem ser divididas. Se você comprar um item de $5 dólares americanos em uma loja, mas usar uma nota de $20 dólares americanos para pagar pelo item, espera receber $15 dólares em troco. O mesmo conceito se aplica às entradas de transações bitcoin. Se você comprou um item que custa 5 bitcoin, mas tinha apenas uma entrada de 20 bitcoin para usar, sua carteira criaria uma única transação que envia duas saídas, uma saída de 5 bitcoin para o dono da loja e uma saída de 15 bitcoin de volta para você como alteração (menos qualquer taxa de transação aplicável). É importante ressaltar que o endereço de alteração não precisa ser o mesmo da entrada e, por motivos de privacidade, costuma ser um novo endereço da carteira do proprietário.
 
-Different wallets may use different strategies when aggregating inputs to make a payment requested by the user. They might aggregate many small inputs, or use one that is equal to or larger than the desired payment. Unless the wallet can aggregate inputs in such a way to exactly match the desired payment plus transaction fees, the wallet will need to generate some change. This is very similar to how people handle cash. If you always use the largest bill in your pocket, you will end up with a pocket full of loose change. If you only use the loose change, you'll always have only big bills. People subconsciously find a balance between these two extremes, and bitcoin wallet developers strive to program this balance.
+Carteiras diferentes podem usar estratégias diferentes ao agregar entradas para fazer um pagamento solicitado pelo usuário. Eles podem agregar muitos pequenos insumos ou usar um que seja igual ou maior do que o pagamento desejado. A menos que a carteira possa agregar entradas de forma a corresponder exatamente ao pagamento desejado mais taxas de transação, a carteira precisará gerar alguns trocos. Isso é muito semelhante ao modo como as pessoas lidam com dinheiro. Se você sempre usar a nota maior no bolso, acabará com um bolso cheio de moedas perdidas. Se você usar apenas os trocos avulsos, sempre terá apenas notas menores. As pessoas inconscientemente encontram um equilíbrio entre esses dois extremos, e os desenvolvedores de carteiras bitcoin se esforçam para programar esse equilíbrio.
 
-((("transactions", "defined")))((("outputs and inputs", "defined")))((("inputs", see="outputs and inputs")))In summary, _transactions_ move value from _transaction inputs_ to _transaction outputs_. An input is a reference to a previous transaction's output, showing where the value is coming from. A transaction usually includes an output that directs a specific value to a new owner's bitcoin address and a change output back to the original owner. Outputs from one transaction can be used as inputs in a new transaction, thus creating a chain of ownership as the value is moved from owner to owner (see <<blockchain-mnemonic>>).
+((("transactions", "defined")))((("outputs and inputs", "defined")))((("inputs", see="outputs and inputs")))Em resumo, _transações_ move o valor de _transações de entrada_ para _transações de saída_. Uma entrada é uma referência à saída de uma transação anterior, mostrando de onde o valor está vindo. Uma transação geralmente inclui uma saída que direciona um valor específico para o endereço de bitcoin de um novo proprietário e uma saída de alteração de volta para o proprietário original. As saídas de uma transação podem ser usadas como entradas em uma nova transação, criando assim uma cadeia de propriedade à medida que o valor é movido de proprietário para proprietário (veja <<blockchain-mnemonic>>).
 
-==== Common Transaction Forms
+==== Formulários de Transação Comum
 
-The most common form of transaction is a simple payment from one address to another, which often includes some "change" returned to the original owner. This type of transaction has one input and two outputs and is shown in <<transaction-common>>.
+A forma mais comum de transação é um simples pagamento de um endereço para outro, que geralmente inclui algum "troco" devolvido ao proprietário original. Este tipo de transação tem uma entrada e duas saídas e é mostrado em <<transaction-common>>.
 
 [[transaction-common]]
-.Most common transaction
+.Transação mais comum
 image::images/mbc2_0205.png["Common Transaction"]
 
-Another common form of transaction is one that aggregates several inputs into a single output (see <<transaction-aggregating>>). This represents the real-world equivalent of exchanging a pile of coins and currency notes for a single larger note. Transactions like these are sometimes generated by wallet applications to clean up lots of smaller amounts that were received as change for payments.
+Outra forma comum de transação é aquela que agrega várias entradas em uma única saída (veja <<transaction-aggregating>>). Isso representa o equivalente no mundo real de trocar uma pilha de moedas e notas de moeda por uma única nota maior. Transações como essas às vezes são geradas por aplicativos de carteira para limpar muitos valores menores que foram recebidos como troco de pagamentos.
 
 [[transaction-aggregating]]
-.Transaction aggregating funds
+.Transação agregando fundos
 image::images/mbc2_0206.png["Aggregating Transaction"]
 
-Finally, another transaction form that is seen often on the bitcoin ledger is a batched transaction, which distributes one input to multiple outputs representing multiple recipients, a technique called "transaction batching" (see <<transaction-distributing>>). Since this type of transaction is useful for saving in transaction fees, it is commonly used by commercial entities to distribute funds, such as when a company is processing payroll payments to multiple employees or when a bitcoin exchange is processing multiple customers' withdrawals in a single transaction.((("", startref="Tover02")))
+Finalmente, outro formulário de transação que é visto com frequência no livro-razão de bitcoin é uma transação em lote, que distribui uma entrada para várias saídas representando vários destinatários, uma técnica chamada "lote de transações" (veja <<transaction-distributing>>). Uma vez que este tipo de transação é útil para economizar em taxas de transação, é comumente usado por entidades comerciais para distribuir fundos, como quando uma empresa está processando pagamentos de folha de pagamento para vários funcionários ou quando uma troca de bitcoin está processando saques de vários clientes em uma única transação.((("", startref="Tover02")))
 
 [[transaction-distributing]]
-.Transaction distributing funds
+.Transação de distribuição de fundos
 image::images/mbc2_0207.png["Distributing Transaction"]
 
-=== Constructing a Transaction
+=== Construindo uma Transação
 
-((("transactions", "constructing", id="Tconstruct02")))((("wallets", "constructing transactions")))Alice's wallet application contains all the logic for selecting appropriate inputs and outputs to build a transaction to Alice's specification. Alice only needs to specify a destination and an amount, and the rest happens in the wallet application without her seeing the details. Importantly, a wallet application can construct transactions even if it is completely offline. Like writing a check at home and later sending it to the bank in an envelope, the transaction does not need to be constructed and signed while connected to the bitcoin network.
+((("transactions", "constructing", id="Tconstruct02")))((("wallets", "constructing transactions")))O aplicativo de carteira de Alice contém toda a lógica para selecionar entradas e saídas apropriadas para construir uma transação de acordo com as especificações de Alice. Alice só precisa especificar um destino e uma quantia, e o resto acontece no aplicativo de carteira sem que ela veja os detalhes. É importante ressaltar que um aplicativo de carteira pode construir transações mesmo se estiver completamente offline. Assim como preencher um cheque em casa e depois enviá-lo ao banco em um envelope, a transação não precisa ser construída e assinada enquanto estiver conectada à rede bitcoin.
 
-==== Getting the Right Inputs
+==== Obtendo as Entradas Certas
 
-((("outputs and inputs", "locating and tracking inputs")))Alice's wallet application will first have to find inputs that can pay the amount she wants to send to Bob. Most wallets keep track of all the available outputs belonging to addresses in the wallet. Therefore, Alice's wallet would contain a copy of the transaction output from Joe's transaction, which was created in exchange for cash (see <<getting_first_bitcoin>>). A bitcoin wallet application that runs as a full-node client actually contains a copy of every unspent output from every transaction in the blockchain. This allows a wallet to construct transaction inputs as well as quickly verify incoming transactions as having correct inputs. However, because a full-node client takes up a lot of disk space, most user wallets run "lightweight" clients that track only the user's own unspent outputs.
+((("outputs and inputs", "locating and tracking inputs")))O aplicativo de carteira de Alice primeiro terá que encontrar entradas que possam pagar a quantia que ela deseja enviar para Bob. A maioria das carteiras mantém registro de todas as saídas disponíveis pertencentes a endereços na carteira. Portanto, a carteira de Alice conteria uma cópia da saída da transação de Joe, que foi criada em troca de dinheiro (veja <<getting_first_bitcoin>>). Um aplicativo de carteira bitcoin executado como um cliente de nó completo contém, na verdade, uma cópia de cada saída não gasta de cada transação no blockchain. Isso permite que uma carteira construa entradas de transações, bem como verifique rapidamente as transações de entrada como tendo entradas corretas. No entanto, como um cliente de nó completo ocupa muito espaço em disco, a maioria das carteiras de usuários executa clientes "leves" que rastreiam apenas as saídas não gastas do próprio usuário.
 
-If the wallet application does not maintain a copy of unspent transaction outputs, it can query the bitcoin network to retrieve this information using a variety of APIs available by different providers or by asking a full-node using an application programming interface (API) call. <<example_2-2>> shows an API request, constructed as an HTTP GET command to a specific URL. This URL will return all the unspent transaction outputs for an address, giving any application the information it needs to construct transaction inputs for spending. We use the simple command-line HTTP client _cURL_ to retrieve the response.
+Se o aplicativo de carteira não mantiver uma cópia das saídas de transações não gastas, ele pode consultar a rede bitcoin para recuperar essas informações usando uma variedade de APIs disponíveis por diferentes provedores ou solicitando um nó completo usando uma chamada de interface de programação de aplicativo (API). <<example_2-2>> mostra uma solicitação de API, construída como um comando HTTP GET para um URL específico. Esse URL retornará todas as saídas de transações não gastas de um endereço, fornecendo a qualquer aplicativo as informações de que precisa para construir entradas de transações para gastos. Usamos o cliente HTTP de linha de comando simples _cURL_ para recuperar a resposta.
 
 [[example_2-2]]
-.Look up all the unspent outputs for Alice's bitcoin address
+.Procure todas as saídas não gastas para o endereço bitcoin de Alice
 ====
 [source,bash]
 ----
@@ -180,109 +180,109 @@ $ curl https://blockchain.info/unspent?active=1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK
 ----
 
 
-The response in <<example_2-2>> shows one unspent output (one that has not been redeemed yet) under the ownership of Alice's address +1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK+. The response includes the reference to the transaction in which this unspent output is contained (the payment from Joe) and its value in satoshis, at 10 million, equivalent to 0.10 bitcoin. With this information, Alice's wallet application can construct a transaction to transfer that value to new owner addresses.
+A resposta em <<example_2-2>> mostra uma saída não gasta (uma que não foi resgatada ainda) sob a propriedade do endereço de Alice +1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK+. A resposta inclui a referência à transação na qual esta saída não gasta está contida (o pagamento de Joe) e seu valor em satoshis, em 10 milhões, equivalente a 0,10 bitcoin. Com essas informações, o aplicativo de carteira de Alice pode construir uma transação para transferir esse valor para novos endereços de proprietários.
 
 [TIP]
 ====
-View the https://www.blockchain.com/btc/tx/7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18[transaction from Joe to Alice].
+Veja a https://www.blockchain.com/btc/tx/7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18[transação de Joe para Alice].
 ====
 
-As you can see, Alice's wallet contains enough bitcoin in a single unspent output to pay for the cup of coffee. Had this not been the case, Alice's wallet application might have to "rummage" through a pile of smaller unspent outputs, like picking coins from a purse until it could find enough to pay for the coffee. In both cases, there might be a need to get some change back, which we will see in the next section, as the wallet application creates the transaction outputs (payments).
+Como você pode ver, a carteira de Alice contém bitcoins suficientes em uma única saída não gasta para pagar a xícara de café. Se não fosse esse o caso, o aplicativo de carteira de Alice poderia ter que "vasculhar" uma pilha de saídas menores não gastas, como pegar moedas em uma bolsa até encontrar o suficiente para pagar o café. Em ambos os casos, pode ser necessário obter algum troco, o que veremos na próxima seção, pois o aplicativo de carteira cria as saídas da transação (pagamentos).
 
 
-==== Creating the Outputs
+==== Criando as Saídas
 
-((("outputs and inputs", "creating outputs")))A transaction output is created in the form of a script that creates an encumbrance on the value and can only be redeemed by the introduction of a solution to the script. In simpler terms, Alice's transaction output will contain a script that says something like, "This output is payable to whoever can present a signature from the key corresponding to Bob's address." Because only Bob has the wallet with the keys corresponding to that address, only Bob's wallet can present such a signature to redeem this output. Alice will therefore "encumber" the output value with a demand for a signature from Bob.
+((("outputs and inputs", "creating outputs")))Uma saída de transação é criada na forma de um script que cria um ônus sobre o valor e só pode ser resgatado pela introdução de uma solução para o script. Em termos mais simples, a saída da transação de Alice conterá um script que diz algo como: "Esta saída é paga a quem puder apresentar uma assinatura da chave correspondente ao endereço de Bob." Como apenas Bob possui a carteira com as chaves correspondentes a esse endereço, apenas a carteira de Bob pode apresentar tal assinatura para resgatar esta saída. Alice irá, portanto, "onerar" o valor de saída com a solicitação de uma assinatura de Bob.
 
-This transaction will also include a second output, because Alice's funds are in the form of a 0.10 BTC output, too much money for the 0.015 BTC cup of coffee. Alice will need 0.085 BTC in change. Alice's change payment is created by Alice's wallet as an output in the very same transaction as the payment to Bob. Essentially, Alice's wallet breaks her funds into two payments: one to Bob and one back to herself. She can then use (spend) the change output in a subsequent transaction.
+Essa transação também incluirá uma segunda saída, porque os fundos de Alice estão na forma de uma saída de 0,10 BTC, muito dinheiro para a xícara de café de 0,015 BTC. Alice precisará de 0,085 BTC na mudança. O pagamento trocado de Alice é criado pela carteira de Alice como uma saída na mesma transação que o pagamento a Bob. Basicamente, a carteira de Alice divide seus fundos em dois pagamentos: um para Bob e outro para ela mesma. Ela pode então usar (gastar) o resultado da mudança em uma transação subsequente.
 
-Finally, for the transaction to be processed by the network in a timely fashion, Alice's wallet application will add a small fee. This is not explicit in the transaction; it is implied by the difference between inputs and outputs. If instead of taking 0.085 in change, Alice creates only 0.0845 as the second output, there will be 0.0005 BTC (half a millibitcoin) left over. The input's 0.10 BTC is not fully spent with the two outputs, because they will add up to less than 0.10. The resulting difference is the _transaction fee_ that is collected by the miner as a fee for validating and including the transaction in a block to be recorded on the blockchain.
+Finalmente, para que a transação seja processada pela rede em tempo hábil, o aplicativo de carteira de Alice adicionará uma pequena taxa. Isso não está explícito na transação; está implícito na diferença entre entradas e saídas. Se, em vez de receber 0,085 de mudança, Alice criar apenas 0,0845 como a segunda saída, sobrará 0,0005 BTC (meio milibitcoin). O BTC de 0,10 da entrada não é totalmente gasto com as duas saídas, porque somam menos de 0,10. A diferença resultante é a _taxa de transação_ que é cobrada pelo minerador como uma taxa para validar e incluir a transação em um bloco a ser registrado no blockchain.
 
-The resulting transaction can be seen using a blockchain explorer web application, as shown in <<transaction-alice>>.
+A transação resultante pode ser vista usando um aplicativo web explorador de blockchain, conforme mostrado em <<transaction-alice>>.
 
 [[transaction-alice]]
 [role="smallerseventyfive"]
-.Alice's transaction to Bob's Cafe
+.Transação de Alice para Bob's Cafe
 image::images/mbc2_0208.png["Alice Coffee Transaction"]
 
 [[transaction-alice-url]]
 [TIP]
 ====
-View the https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2[transaction from Alice to Bob's Cafe].
+Veja a https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2[transação de Alice para Bob's Cafe].
 ====
 
-==== Adding the Transaction to the Ledger
+==== Adicionando a Transação ao Livro-Razão
 
-The transaction created by Alice's wallet application is 258 bytes long and contains everything necessary to confirm ownership of the funds and assign new owners. Now, the transaction must be transmitted to the bitcoin network where it will become part of the blockchain. In the next section we will see how a transaction becomes part of a new block and how the block is "mined." Finally, we will see how the new block, once added to the blockchain, is increasingly trusted by the network as more blocks are added.
+A transação criada pelo aplicativo de carteira de Alice tem 258 bytes e contém tudo o que é necessário para confirmar a propriedade dos fundos e atribuir novos proprietários. Agora, a transação deve ser transmitida para a rede bitcoin, onde fará parte do blockchain. Na próxima seção, veremos como uma transação se torna parte de um novo bloco e como o bloco é "extraído". Finalmente, veremos como o novo bloco, uma vez adicionado ao blockchain, é cada vez mais confiável pela rede à medida que mais blocos são adicionados.
 
-===== Transmitting the transaction
+===== Transmitindo a transação
 
-((("propagation", "process of")))Because the transaction contains all the information necessary to process, it does not matter how or where it is transmitted to the bitcoin network. The bitcoin network is a peer-to-peer network, with each bitcoin client participating by connecting to several other bitcoin clients. The purpose of the bitcoin network is to propagate transactions and blocks to all participants.
+((("propagation", "process of")))Como a transação contém todas as informações necessárias para o processamento, não importa como ou onde ela é transmitida para a rede bitcoin. A rede bitcoin é uma rede ponto-a-ponto, com cada cliente bitcoin participando conectando-se a vários outros clientes bitcoin. O objetivo da rede bitcoin é propagar transações e blocos para todos os participantes.
 
-===== How it propagates
+===== Como se propaga
 
-((("bitcoin nodes", "defined")))((("nodes", see="bitcoin nodes")))Any system, such as a server, desktop application, or wallet, that participates in the bitcoin network by "speaking" the bitcoin protocol is called a _bitcoin node_. Alice's wallet application can send the new transaction to any bitcoin node it is connected to over any type of connection: wired, WiFi, mobile, etc.  Her bitcoin wallet does not have to be connected to Bob's bitcoin wallet directly and she does not have to use the internet connection offered by the cafe, though both those options are possible, too. ((("propagation", "flooding technique")))((("flooding technique")))Any bitcoin node that receives a valid transaction it has not seen before will immediately forward it to all other nodes to which it is connected, a propagation technique known as _flooding_. Thus, the transaction rapidly propagates out across the peer-to-peer network, reaching a large percentage of the nodes within a few seconds.
+((("bitcoin nodes", "defined")))((("nodes", see="bitcoin nodes")))Qualquer sistema, como um servidor, aplicativo de desktop ou carteira, que participa da rede bitcoin "falando" o protocolo bitcoin é chamado de _nó bitcoin_. O aplicativo de carteira de Alice pode enviar a nova transação para qualquer nó bitcoin ao qual esteja conectado por meio de qualquer tipo de conexão: com fio, Wi-Fi, celular, etc. Sua carteira de bitcoin não precisa ser conectada diretamente à carteira de bitcoin de Bob e ela não precisa usar a conexão de internet oferecida pelo cafeteria, embora ambas as opções também sejam possíveis. ((("propagation", "flooding technique")))((("flooding technique")))Qualquer nó bitcoin que receba uma transação válida que não tenha visto antes irá encaminhá-la imediatamente para todos os outros nós aos quais está conectado, uma técnica de propagação conhecida como _inundação_. Assim, a transação se propaga rapidamente pela rede ponto-a-ponto, atingindo uma grande porcentagem dos nós em poucos segundos.
 
-===== Bob's view
+===== Visão de Bob
 
-If Bob's bitcoin wallet application is directly connected to Alice's wallet application, Bob's wallet application might be the first node to receive the transaction. However, even if Alice's wallet sends the transaction through other nodes, it will reach Bob's wallet within a few seconds. Bob's wallet will immediately identify Alice's transaction as an incoming payment because it contains outputs redeemable by Bob's keys. Bob's wallet application can also independently verify that the transaction is well formed, uses previously unspent outputs, and contains sufficient transaction fees to be included in the next block. At this point Bob can assume, with little risk, that the transaction will shortly be included in a block and confirmed.
+Se o aplicativo de carteira bitcoin de Bob estiver diretamente conectado ao aplicativo de carteira de Alice, o aplicativo de carteira de Bob pode ser o primeiro nó a receber a transação. No entanto, mesmo se a carteira de Alice enviar a transação por meio de outros nós, ela alcançará a carteira de Bob em alguns segundos. A carteira de Bob identificará imediatamente a transação de Alice como uma conta a receber porque contém saídas resgatáveis ​​pelas chaves de Bob. O aplicativo de carteira de Bob também pode verificar de forma independente se a transação está bem formada, usa saídas não gastas anteriormente e contém taxas de transação suficientes para serem incluídas no próximo bloco. Nesse ponto, Bob pode assumir, com pouco risco, que a transação em breve será incluída em um bloco e confirmada.
 
 [TIP]
 ====
-((("confirmations", "of small-value transactions", secondary-sortas="small-value transactions")))A common misconception about bitcoin transactions is that they must be "confirmed" by waiting 10 minutes for a new block, or up to 60 minutes for a full six confirmations. Although confirmations ensure the transaction has been accepted by the whole network, such a delay is unnecessary for small-value items such as a cup of coffee. A merchant may accept a valid small-value transaction with no confirmations, with no more risk than a credit card payment made without an ID or a signature, as merchants routinely accept today.((("", startref="Tconstruct02")))
+((("confirmations", "of small-value transactions", secondary-sortas="small-value transactions")))Um equívoco comum sobre as transações de bitcoin é que elas devem ser "confirmadas" aguardando 10 minutos para um novo bloco ou até 60 minutos para seis confirmações completas. Embora as confirmações garantam que a transação foi aceita por toda a rede, esse atraso é desnecessário para itens de pequeno valor, como uma xícara de café. Um comerciante pode aceitar uma transação válida de pequeno valor sem confirmações, com não mais risco do que um pagamento com cartão de crédito feito sem uma identidade ou assinatura, como os comerciantes aceitam rotineiramente hoje.((("", startref="Tconstruct02")))
 ====
 
-=== Bitcoin Mining
+=== Mineração de Bitcoin
 
-((("mining and consensus", "overview of", id="MACover02")))((("blockchain (the)", "overview of mining", id="BToverview02")))Alice's transaction is now propagated on the bitcoin network. It does not become part of the _blockchain_ until it is verified and included in a block by a process called _mining_. See <<mining>> for a detailed explanation.
+((("mining and consensus", "overview of", id="MACover02")))((("blockchain (the)", "overview of mining", id="BToverview02")))A transação de Alice agora é propagada na rede bitcoin. Ela não se torna parte do _blockchain_ até que seja verificado e incluído em um bloco por um processo denominado _mineração_. Veja <<mining>> para uma explicação detalhada.
 
-The bitcoin system of trust is based on computation. Transactions are bundled into _blocks_, which require an enormous amount of computation to prove, but only a small amount of computation to verify as proven. The mining process serves two purposes in bitcoin:
+O sistema de confiança bitcoin é baseado em computação. As transações são agrupadas em _blocos_, o que requer uma enorme quantidade de computação para provar, mas apenas uma pequena quantidade de computação para verificar como comprovado. O processo de mineração serve a dois propósitos no bitcoin:
 
-* ((("mining and consensus", "consensus rules", "security provided by")))((("consensus", see="mining and consensus")))Mining nodes validate all transactions by reference to bitcoin's _consensus rules_. Therefore, mining provides security for bitcoin transactions by rejecting invalid or malformed transactions.
-* Mining creates new bitcoin in each block, almost like a central bank printing new money. The amount of bitcoin created per block is limited and diminishes with time, following a fixed issuance schedule.
+* ((("mining and consensus", "consensus rules", "security provided by")))((("consensus", see="mining and consensus")))Os nós de mineração validam todas as transações por referência às _regras de consenso_ do bitcoin. Portanto, a mineração fornece segurança para transações de bitcoin, rejeitando transações inválidas ou malformadas.
+* A mineração cria um novo bitcoin em cada bloco, quase como um banco central imprimindo dinheiro novo. A quantidade de bitcoin criada por bloco é limitada e diminui com o tempo, seguindo um cronograma de emissão fixo.
 
 
-Mining achieves a fine balance between cost and reward. Mining uses electricity to solve a mathematical problem. A successful miner will collect a _reward_ in the form of new bitcoin and transaction fees. However, the reward will only be collected if the miner has correctly validated all the transactions, to the satisfaction of the rules of _consensus_. This delicate balance provides security for bitcoin without a central authority.
+A mineração atinge um equilíbrio preciso entre custo e recompensa. A mineração usa eletricidade para resolver um problema matemático. Um minerador bem-sucedido receberá uma _recompensa_ na forma de novo bitcoin e taxas de transação. Porém, a recompensa só será cobrada se o mineiro tiver validado corretamente todas as transações, de acordo com as regras de _consenso_. Este delicado equilíbrio fornece segurança para bitcoin sem uma autoridade central.
 
-A good way to describe mining is like a giant competitive game of sudoku that resets every time someone finds a solution and whose difficulty automatically adjusts so that it takes approximately 10 minutes to find a solution. Imagine a giant sudoku puzzle, several thousand rows and columns in size. If I show you a completed puzzle you can verify it quite quickly. However, if the puzzle has a few squares filled and the rest are empty, it takes a lot of work to solve! The difficulty of the sudoku can be adjusted by changing its size (more or fewer rows and columns), but it can still be verified quite easily even if it is very large. The "puzzle" used in bitcoin is based on a cryptographic hash and exhibits similar characteristics: it is asymmetrically hard to solve but easy to verify, and its difficulty can be adjusted.
+Uma boa maneira de descrever a mineração é como um gigantesco jogo competitivo de sudoku que reinicia toda vez que alguém encontra uma solução e cuja dificuldade se ajusta automaticamente de forma que leva aproximadamente 10 minutos para encontrar uma solução. Imagine um quebra-cabeça de sudoku gigante, com vários milhares de linhas e colunas de tamanho. Se eu mostrar um quebra-cabeça completo, você poderá verificá-lo rapidamente. No entanto, se o quebra-cabeça tiver alguns quadrados preenchidos e o resto estiver vazio, é muito trabalhoso resolvê-lo! A dificuldade do sudoku pode ser ajustada alterando seu tamanho (mais ou menos linhas e colunas), mas ainda pode ser verificada facilmente, mesmo se for muito grande. O "quebra-cabeça" usado no bitcoin é baseado em um hash criptográfico e exibe características semelhantes: é assimetricamente difícil de resolver, mas fácil de verificar, e sua dificuldade pode ser ajustada.
 
-((("mining and consensus", "mining farms and pools")))In <<user-stories>>, we introduced ((("use cases", "mining for bitcoin")))Jing, an entrepreneur in Shanghai. Jing runs a _mining farm_, which is a business that runs thousands of specialized mining computers, competing for the reward. Every 10 minutes or so, Jing's mining computers compete against thousands of similar systems in a global race to find a solution to a block of transactions. ((("Proof-of-Work algorithm")))((("mining and consensus", "Proof-of-Work algorithm")))Finding such a solution, the so-called _Proof-of-Work_ (PoW), requires quadrillions of hashing operations per second across the entire bitcoin network. The algorithm for Proof-of-Work involves repeatedly hashing the header of the block and a random number with the SHA256 cryptographic algorithm until a solution matching a predetermined pattern emerges. The first miner to find such a solution wins the round of competition and publishes that block into the blockchain.
+((("mining and consensus", "mining farms and pools")))Em <<user-stories>>, nós introduzimos ((("use cases", "mining for bitcoin")))Jing, um empresário de Xangai. Jing administra uma _fazenda de mineração_, que é uma empresa que opera milhares de computadores especializados em mineração, competindo pela recompensa. A cada 10 minutos ou mais, os computadores de mineração de Jing competem contra milhares de sistemas semelhantes em uma corrida global para encontrar uma solução para um bloco de transações. ((("Proof-of-Work algorithm")))((("mining and consensus", "Proof-of-Work algorithm")))Encontrar essa solução, a chamada _Prova-de-Trabalho_ ou _Proof-of-Work_ (PoW), requer quatrilhões de operações de hash por segundo em toda a rede bitcoin. O algoritmo de Prova-de-Trabalho envolve hashing repetidamente do cabeçalho do bloco e de um número aleatório com o algoritmo criptográfico SHA256 até que uma solução correspondente a um padrão predeterminado surja. O primeiro minerador a encontrar essa solução vence a rodada da competição e publica esse bloco no blockchain.
 
-Jing started mining in 2010 using a very fast desktop computer to find a suitable Proof-of-Work for new blocks. As more miners started joining the bitcoin network, the difficulty of the problem increased rapidly. Soon, Jing and other miners upgraded to more specialized hardware, with high-end dedicated graphical processing units (GPUs), often used in gaming desktops or consoles. At the time of this writing, the difficulty is so high that it is profitable only to mine with ((("application-specific integrated circuits (ASIC)")))application-specific integrated circuits (ASIC), essentially hundreds of mining algorithms printed in hardware, running in parallel on a single silicon chip. ((("mining pools", "defined")))Jing's company also participates in a _mining pool_, which much like a lottery pool allows several participants to share their efforts and rewards. Jing's company now runs a warehouse containing thousands of  ASIC miners to mine for bitcoin 24 hours a day. The company pays its electricity costs by selling the bitcoin it is able to generate from mining, creating some income from the profits.
+Jing começou a minerar em 2010 usando um computador desktop muito rápido para encontrar uma prova de trabalho adequada para novos blocos. À medida que mais mineiros começaram a aderir à rede bitcoin, a dificuldade do problema aumentou rapidamente. Logo, Jing e outros mineiros fizeram upgrade para um hardware mais especializado, com unidades de processamento gráfico (GPUs) dedicadas de ponta, frequentemente usadas em desktops ou consoles de jogos. No momento da redação deste artigo, a dificuldade é tão grande que só é lucrativo para minerar com ((("application-specific integrated circuits (ASIC)")))circuitos integrados de aplicativos específicos (ASIC), essencialmente centenas de algoritmos de mineração impressos em hardware, executados em paralelo em um único chip de silício. ((("mining pools", "defined")))A empresa de Jing também participa de um _conjunto de mineração_, que, assim como um conjunto de loteria, permite que vários participantes compartilhem seus esforços e recompensas. A empresa de Jing agora administra um depósito contendo milhares de mineiros ASIC para extrair bitcoin 24 horas por dia. A empresa paga seus custos de eletricidade com a venda do bitcoin que é capaz de gerar na mineração, gerando alguma receita com os lucros.
 
-=== Mining Transactions in Blocks
+=== Transações de Mineração em Blocos
 
-((("blocks", "mining transactions in")))New transactions are constantly flowing into the network from user wallets and other applications. As these are seen by the bitcoin network nodes, they get added to a temporary pool of unverified transactions maintained by each node. As miners construct a new block, they add unverified transactions from this pool to the new block and then attempt to prove the validity of that new block, with the mining algorithm (Proof-of-Work). The process of mining is explained in detail in <<mining>>.
+((("blocks", "mining transactions in")))Novas transações fluem constantemente para a rede a partir de carteiras de usuários e outros aplicativos. Conforme são vistos pelos nós da rede bitcoin, eles são adicionados a um pool temporário de transações não verificadas mantido por cada nó. À medida que os mineradores constroem um novo bloco, eles adicionam transações não verificadas desse pool ao novo bloco e, em seguida, tentam provar a validade desse novo bloco, com o algoritmo de mineração (Prova-de-Trabalho). O processo de mineração é explicado em detalhes em <<mining>>.
 
-Transactions are added to the new block, prioritized by the highest-fee transactions first and a few other criteria. Each miner starts the process of mining a new block of transactions as soon as they receive the previous block from the network, knowing they have lost that previous round of competition. They immediately create a new block, fill it with transactions and the fingerprint of the previous block, and start calculating the Proof-of-Work for the new block. Each miner includes a special transaction in their block, one that pays their own bitcoin address the block reward (currently 6.25 newly created bitcoin) plus the sum of transaction fees from all the transactions included in the block. If they find a solution that makes that block valid, they "win" this reward because their successful block is added to the global blockchain and the reward transaction they included becomes spendable. ((("mining pools", "operation of")))Jing, who participates in a mining pool, has set up his software to create new blocks that assign the reward to a pool address. From there, a share of the reward is distributed to Jing and other miners in proportion to the amount of work they contributed in the last round.
+As transações são adicionadas ao novo bloco, priorizadas pelas transações de taxa mais alta primeiro e alguns outros critérios. Cada minerador inicia o processo de mineração de um novo bloco de transações assim que recebe o bloco anterior da rede, sabendo que perdeu a rodada anterior da competição. Eles imediatamente criam um novo bloco, preenchem-no com as transações e a impressão digital do bloco anterior e começam a calcular a Prova-de-Trabalho para o novo bloco. Cada minerador inclui uma transação especial em seu bloco, que paga seu próprio endereço de bitcoin a recompensa do bloco (atualmente 6,25 bitcoin recém-criado) mais a soma das taxas de transação de todas as transações incluídas no bloco. Se encontrarem uma solução que torne esse bloco válido, eles "ganham" essa recompensa porque seu bloco bem-sucedido é adicionado ao blockchain global e a transação de recompensa que eles incluíram torna-se gastável. ((("mining pools", "operation of")))Jing, que participa de um pool de mineração, configurou seu software para criar novos blocos que atribuem a recompensa a um endereço de pool. A partir daí, uma parte da recompensa é distribuída para Jing e outros mineiros na proporção da quantidade de trabalho que eles contribuíram na última rodada.
 
-((("candidate blocks")))((("blocks", "candidate blocks")))Alice's transaction was picked up by the network and included in the pool of unverified transactions. Once validated by the mining software it was included in a new block, called a _candidate block_, generated by Jing's mining pool. All the miners participating in that mining pool immediately start computing Proof-of-Work for the candidate block. Approximately five minutes after the transaction was first transmitted by Alice's wallet, one of Jing's ASIC miners found a solution for the candidate block and announced it to the network. Once other miners validated the winning block they started the race to generate the next block.
+((("candidate blocks")))((("blocks", "candidate blocks")))A transação de Alice foi captada pela rede e incluída no pool de transações não verificadas. Depois de validado pelo software de mineração, ele foi incluído em um novo bloco, denominado _bloco de candidato_, gerado pelo pool de mineração de Jing. Todos os mineiros que participam desse pool de mineração começam imediatamente a calcular a Prova-de-Trabalho para o bloco candidato. Aproximadamente cinco minutos depois que a transação foi transmitida pela primeira vez pela carteira de Alice, um dos mineiros ASIC de Jing encontrou uma solução para o bloco candidato e a anunciou para a rede. Assim que outros mineiros validaram o bloco vencedor, eles começaram a corrida para gerar o próximo bloco.
 
-Jing's winning block became part of the blockchain as block #277316, containing 419 transactions, including Alice's transaction. The block containing Alice's transaction is counted as one "confirmation" of that transaction.
+O bloco vencedor de Jing tornou-se parte do blockchain como bloco #277316, contendo 419 transações, incluindo a transação de Alice. O bloco contendo a transação de Alice é contado como uma "confirmação" dessa transação.
 
 [TIP]
 ====
-You can see the block that includes https://blockchain.info/btc/block/277316[Alice's transaction].
+Você pode ver o bloco que inclui https://blockchain.info/btc/block/277316[transação de Alice].
 ====
 
-((("confirmations", "role in transactions")))Approximately 19 minutes later, a new block, #277317, is mined by another miner. Because this new block is built on top of block #277316 that contained Alice's transaction, it added even more computation to the blockchain, thereby strengthening the trust in those transactions. Each block mined on top of the one containing the transaction counts as an additional confirmation for Alice's transaction. As the blocks pile on top of each other, it becomes exponentially harder to reverse the transaction, thereby making it more and more trusted by the network.
+((("confirmations", "role in transactions")))Aproximadamente 19 minutos depois, um novo bloco, #277317, é extraído por outro minerador. Como esse novo bloco foi construído sobre o bloco nº 277316 que continha a transação de Alice, ele adicionou ainda mais computação ao blockchain, fortalecendo assim a confiança nessas transações. Cada bloco extraído sobre aquele que contém a transação conta como uma confirmação adicional para a transação de Alice. À medida que os blocos se amontoam, fica exponencialmente mais difícil reverter a transação, tornando-a cada vez mais confiável para a rede.
 
-((("genesis block")))((("blocks", "genesis block")))((("blockchain (the)", "genesis block")))In the diagram in <<block-alice1>>,  we can see block #277316, which contains Alice's transaction. Below it are 277,316 blocks (including block #0), linked to each other in a chain of blocks (blockchain) all the way back to block #0, known as the _genesis block_. Over time, as the "height" in blocks increases, so does the computation difficulty for each block and the chain as a whole. The blocks mined after the one that contains Alice's transaction act as further assurance, as they pile on more computation in a longer and longer chain. By convention, any block with more than six confirmations is considered irrevocable, because it would require an immense amount of computation to invalidate and recalculate six blocks. We will examine the process of mining and the way it builds trust in more detail in <<mining>>.((("", startref="BToverview02")))((("", startref="MACover02")))
+((("genesis block")))((("blocks", "genesis block")))((("blockchain (the)", "genesis block")))No diagrama em <<block-alice1>>, podemos ver o bloco # 277316, que contém a transação de Alice. Abaixo dele estão 277.316 blocos (incluindo o bloco nº 0), ligados uns aos outros em uma cadeia de blocos (blockchain) até o bloco nº 0, conhecido como _bloco de gênese_. Com o tempo, conforme a "altura" nos blocos aumenta, também aumenta a dificuldade de cálculo de cada bloco e da cadeia como um todo. Os blocos extraídos após aquele que contém a transação de Alice agem como garantia adicional, pois acumulam mais computação em uma cadeia cada vez mais longa. Por convenção, qualquer bloco com mais de seis confirmações é considerado irrevogável, porque exigiria uma quantidade imensa de computação para invalidar e recalcular seis blocos. Examinaremos o processo de mineração e a maneira como ele cria confiança com mais detalhes em <<mining>>.((("", startref="BToverview02")))((("", startref="MACover02")))
 
 [[block-alice1]]
-.Alice's transaction included in block #277316
+.Transação de Alice incluída no bloco #277316
 image::images/mbc2_0209.png["Alice's transaction included in a block"]
 
-=== Spending the Transaction
+=== Gastando a Transação
 
-((("spending bitcoin", "simplified-payment-verification (SPV)")))((("simplified-payment-verification (SPV)")))Now that Alice's transaction has been embedded in the blockchain as part of a block, it is part of the distributed ledger of bitcoin and visible to all bitcoin applications. Each bitcoin client can independently verify the transaction as valid and spendable. Full-node clients can track the source of the funds from the moment the bitcoin were first generated in a block, incrementally from transaction to transaction, until they reach Bob's address. Lightweight clients can do what is called a simplified payment verification (see <<spv_nodes>>) by confirming that the transaction is in the blockchain and has several blocks mined after it, thus providing assurance that the miners accepted it as valid.
+((("spending bitcoin", "simplified-payment-verification (SPV)")))((("simplified-payment-verification (SPV)")))Agora que a transação de Alice foi incorporada ao blockchain como parte de um bloco, ela faz parte do livro-razão distribuído do bitcoin e fica visível para todos os aplicativos bitcoin. Cada cliente bitcoin pode verificar de forma independente a transação como válida e utilizável. Os clientes de nó completo podem rastrear a origem dos fundos desde o momento em que o bitcoin foi gerado pela primeira vez em um bloco, de forma incremental de uma transação para outra, até chegarem ao endereço de Bob. Clientes leves podem fazer o que é chamado de verificação de pagamento simplificada (veja <<spv_nodes>>) confirmando que a transação está no blockchain e tem vários blocos minerados depois dela, garantindo assim que os mineiros a aceitaram como válida.
 
-Bob can now spend the output from this and other transactions. For example, Bob can pay a contractor or supplier by transferring value from Alice's coffee cup payment to these new owners. Most likely, Bob's bitcoin software will aggregate many small payments into a larger payment, perhaps concentrating all the day's bitcoin revenue into a single transaction. This would aggregate the various payments into a single output (and a single address). For a diagram of an aggregating transaction, see <<transaction-aggregating>>.
+Bob agora pode gastar o resultado dessa e de outras transações. Por exemplo, Bob pode pagar a um contratante ou fornecedor transferindo o valor do pagamento da xícara de café de Alice para esses novos proprietários. Muito provavelmente, o software bitcoin de Bob agregará muitos pagamentos pequenos em um pagamento maior, talvez concentrando todas as receitas de bitcoin do dia em uma única transação. Isso agregaria os vários pagamentos em uma única saída (e um único endereço). Para um diagrama de uma transação de agregação, veja <<transaction-aggregating>>.
 
-As Bob spends the payments received from Alice and other customers, he extends the chain of transactions. Let's assume that Bob pays his web designer Gopesh((("use cases", "offshore contract services"))) in Bangalore for a new web page. Now the chain of transactions will look like <<block-alice2>>.
+À medida que Bob gasta os pagamentos recebidos de Alice e de outros clientes, ele estende a cadeia de transações. Vamos supor que Bob pague seu web designer Gopesh((("use cases", "offshore contract services"))) em Bangalore para uma nova página da web. Agora, a cadeia de transações parecerá <<block-alice2>>.
 
 [[block-alice2]]
-.Alice's transaction as part of a transaction chain from Joe to Gopesh
+.A transação de Alice como parte de uma cadeia de transações de Joe para Gopesh
 image::images/mbc2_0210.png["Alice's transaction as part of a transaction chain"]
 
-In this chapter, we saw how transactions build a chain that moves value from owner to owner. We also tracked Alice's transaction, from the moment it was created in her wallet, through the bitcoin network and to the miners who recorded it on the blockchain. In the rest of this book, we will examine the specific technologies behind wallets, addresses, signatures, transactions, the network, and finally mining.((("", startref="BCover02")))((("", startref="DCSover02"))) ((("", startref="UCcoffee02")))
+Neste capítulo, vimos como as transações criam uma cadeia que move valor de proprietário para proprietário. Também rastreamos a transação de Alice, desde o momento em que foi criada em sua carteira, por meio da rede bitcoin e até os mineiros que a gravaram no blockchain. No restante deste livro, examinaremos as tecnologias específicas por trás de carteiras, endereços, assinaturas, transações, rede e, finalmente, mineração.((("", startref="BCover02")))((("", startref="DCSover02"))) ((("", startref="UCcoffee02")))
