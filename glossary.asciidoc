@@ -1,253 +1,253 @@
 [preface]
-== Quick Glossary
+== Glossário Rápido
 
-This quick glossary contains many of the terms used in relation to bitcoin. These terms are used throughout the book, so bookmark this for a quick reference.
+Este glossário rápido contém muitos dos termos usados em relação ao bitcoin. Esses termos são usados em todo o livro, portanto, marque-os para uma referência rápida.
 
-address::
-    A bitcoin address looks like +1DSrfJdB2AnWaFNgSbv3MZC2m74996JafV+. It consists of a string of letters and numbers. It's really an encoded base58check version of a public key 160-bit hash. Just as you ask others to send an email to your email address, you would ask others to send you bitcoin to one of your bitcoin addresses.
+endereço::
+    Um endereço bitcoin parece +1DSrfJdB2AnWaFNgSbv3MZC2m74996JafV+. Consiste em uma sequência de letras e números. Na verdade, é uma versão codificada de base58check de um hash de chave pública de 160 bits. Assim como você pede a outros que enviem um e-mail para o seu endereço de e-mail, você pediria que outros enviassem bitcoin para um de seus endereços de bitcoin.
 
 bip::
-    Bitcoin Improvement Proposals.  A set of proposals that members of the bitcoin community have submitted to improve bitcoin. For example, BIP-21 is a proposal to improve the bitcoin uniform resource identifier (URI) scheme.
+    Bitcoin Improvement Proposals (Propostas de Melhoria do Bitcoin). Um conjunto de propostas que membros da comunidade bitcoin enviaram para melhorar o bitcoin. Por exemplo, o BIP-21 é uma proposta para melhorar o esquema de identificador uniforme de recursos bitcoin (URI).
 
 bitcoin::
-    The name of the currency unit (the coin), the network, and the software.
+    O nome da unidade monetária (a moeda), a rede e o software.
 
-block::
-    A grouping of transactions, marked with a timestamp, and a fingerprint of the previous block. The block header is hashed to produce a proof of work, thereby validating the transactions. Valid blocks are added to the main blockchain by network consensus.
+bloco::
+    Um agrupamento de transações, marcadas com um carimbo de data/hora e uma impressão digital do bloco anterior. O cabeçalho do bloco é hash para produzir uma prova de trabalho, validando assim as transações. Os blocos válidos são adicionados ao blockchain principal por consenso da rede.
 
 blockchain::
-	A list of validated blocks, each linking to its predecessor all the way to the genesis block.
+	Uma lista de blocos validados, cada um vinculado ao seu antecessor até o bloco de origem.
 
-Byzantine Generals Problem::
-    A reliable computer system must be able to cope with the failure of one or more of its components. A failed component may exhibit a type of behavior that is often overlooked--namely, sending conflicting information to different parts of the system. The problem of coping with this type of failure is expressed abstractly as the Byzantine Generals Problem.
+Problema dos Generais Bizantinos::
+    Um sistema de computador confiável deve ser capaz de lidar com a falha de um ou mais de seus componentes. Um componente com falha pode exibir um tipo de comportamento que costuma ser esquecido - ou seja, enviar informações conflitantes para diferentes partes do sistema. O problema de lidar com esse tipo de falha é expresso abstratamente como o Problema dos Generais Bizantinos.
 
 coinbase::
-	A special field used as the sole input for coinbase transactions. The coinbase allows claiming the block reward and provides up to 100 bytes for arbitrary data.
-	Not to be confused with Coinbase transaction.
+	Um campo especial usado como entrada única para transações coinbase. O coinbase permite reivindicar a recompensa do bloco e fornece até 100 bytes para dados arbitrários.
+	Não deve ser confundido com a transação Coinbase.
 
-coinbase transaction::
-	The first transaction in a block. Always created by a miner, it includes a single coinbase.
-	Not to be confused with Coinbase.
+transação coinbase::
+	A primeira transação em um bloco. Sempre criado por um mineiro, inclui uma única base de moedas.
+	Não deve ser confundido com Coinbase.
 
-cold storage::
-	Refers to keeping a reserve of bitcoin offline. Cold storage is achieved when Bitcoin private keys are created and stored in a secure offline environment. Cold storage is important for anyone with bitcoin holdings. Online computers are vulnerable to hackers and should not be used to store a significant amount of bitcoin.
+armazenamento frio::
+	Refere-se a manter uma reserva de bitcoin offline. O armazenamento frio é obtido quando as chaves privadas Bitcoin são criadas e armazenadas em um ambiente offline seguro. O armazenamento refrigerado é importante para qualquer pessoa com reservas de bitcoin. Os computadores online são vulneráveis a hackers e não devem ser usados para armazenar uma quantidade significativa de bitcoin.
 
-confirmations::
-	Once a transaction is included in a block, it has one confirmation. As soon as _another_ block is mined on the same blockchain, the transaction has two confirmations, and so on. Six or more confirmations is considered sufficient proof that a transaction cannot be reversed.
+confirmações::
+	Uma vez que uma transação é incluída em um bloco, ela tem uma confirmação. Assim que _outro_ bloco é extraído no mesmo blockchain, a transação tem duas confirmações e assim por diante. Seis ou mais confirmações são consideradas prova suficiente de que uma transação não pode ser revertida.
 
-consensus::
-    When several nodes, usually most nodes on the network, all have the same blocks in their locally-validated best block chain.
-    Not to be confused with consensus rules.
+consenso::
+    Quando vários nós, geralmente a maioria dos nós na rede, têm os mesmos blocos em sua melhor cadeia de blocos validada localmente.
+    Não deve ser confundido com regras de consenso.
 
-consensus rules::
-    The block validation rules that full nodes follow to stay in consensus with other nodes.
-    Not to be confused with consensus.
+regras de consenso::
+    As regras de validação de bloco que os nós completos seguem para permanecer em consenso com outros nós.
+    Não deve ser confundido com consenso.
 
-difficulty::
-	A network-wide setting that controls how much computation is required to produce a proof of work.
+dificuldade::
+	Uma configuração em toda a rede que controla quanta computação é necessária para produzir uma prova de trabalho.
 
-difficulty retargeting::
-	A network-wide recalculation of the difficulty that occurs once every 2,016 blocks and considers the hashing power of the previous 2,016 blocks.
+alvejamento de dificuldade::
+	Um recálculo da dificuldade em toda a rede que ocorre uma vez a cada 2.016 blocos e considera o poder de hashing dos 2.016 blocos anteriores.
 
-difficulty target::
-    A difficulty at which all the computation in the network will find blocks approximately every 10 minutes.
+alvo de dificuldade::
+    Uma dificuldade em que todo o cálculo na rede encontrará blocos aproximadamente a cada 10 minutos.
 
-double-spending::
-    Double spending is the result of successfully spending some money more than once. Bitcoin protects against double-spending by verifying each transaction added to the block chain to ensure that the inputs for the transaction had not previously already been spent.
+gasto duplo::
+    Gasto duplo é o resultado de gastar algum dinheiro com sucesso mais de uma vez. O Bitcoin protege contra gastos duplos verificando cada transação adicionada à cadeia de blocos para garantir que as entradas para a transação ainda não tenham sido gastas anteriormente.
 
 ECDSA::
-    Elliptic Curve Digital Signature Algorithm or ECDSA is a cryptographic algorithm used by Bitcoin to ensure that funds can only be spent by their rightful owners.
+    Elliptic Curve Digital Signature Algorithm ou ECDSA é um algoritmo criptográfico usado pelo Bitcoin para garantir que os fundos só possam ser gastos por seus legítimos proprietários.
 
-extra nonce::
-    As difficulty increased, miners often cycled through all 4 billion values of the nonce without finding a block. Because the coinbase script can store between 2 and 100 bytes of data, miners started using that space as extra nonce space, allowing them to explore a much larger range of block header values to find valid blocks.
+nonce extra::
+    À medida que a dificuldade aumentava, os mineiros frequentemente percorriam todos os 4 bilhões de valores do nonce sem encontrar um bloco. Como o script coinbase pode armazenar entre 2 e 100 bytes de dados, os mineiros começaram a usar esse espaço como espaço extra de nonce, permitindo-lhes explorar uma gama muito maior de valores de cabeçalho de bloco para encontrar blocos válidos.
 
-fees::
-	The sender of a transaction often includes a fee to the network for processing the requested transaction.  Most transactions require a minimum fee of 0.5 mBTC.
+honorários::
+	O remetente de uma transação geralmente inclui uma taxa para a rede pelo processamento da transação solicitada. A maioria das transações exige uma taxa mínima de 0,5 mBTC.
 
-fork::
-    Fork, also known as accidental fork, occurs when two or more blocks have the same block height, forking the block chain. Typically occurs when two or more miners find blocks at nearly the same time. Can also happen as part of an attack.
+fork (bifurcação)::
+    Bifurcação, também conhecido como bifurcação acidental, ocorre quando dois ou mais blocos têm a mesma altura, bifurcando a corrente do bloco. Normalmente ocorre quando dois ou mais mineiros encontram blocos quase ao mesmo tempo. Também pode acontecer como parte de um ataque.
 
-genesis block::
-	The first block in the blockchain, used to initialize the cryptocurrency.
+bloco de gêneses::
+	O primeiro bloco no blockchain, usado para inicializar a criptomoeda.
 
 hard fork::
-    Hard fork, also known as Hard-Forking Change, is a permanent divergence in the blockchain, commonly occurs when non-upgraded nodes can’t validate blocks created by upgraded nodes that follow newer consensus rules.
-    Not to be confused with fork, soft fork, software fork or Git fork.
+    Hard fork, também conhecido como Hard-Forking Change, é uma divergência permanente no blockchain, comumente ocorre quando nós não atualizados não podem validar blocos criados por nós atualizados que seguem regras de consenso mais recentes.
+    Não deve ser confundido com fork, soft fork, software fork ou Git fork.
 
-hardware wallet::
-    A hardware wallet is a special type of bitcoin wallet which stores the user's private keys in a secure hardware device.
+carteira de hardware::
+    Uma carteira de hardware é um tipo especial de carteira bitcoin que armazena as chaves privadas do usuário em um dispositivo de hardware seguro.
 
 hash::
-    A digital fingerprint of some binary input.
+    Uma impressão digital de alguma entrada binária.
 
 hashlocks::
-    A hashlock is a type of encumbrance that restricts the spending of an output until a specified piece of data is publicly revealed. Hashlocks have the useful property that once any hashlock is opened publicly, any other hashlock secured using the same key can also be opened. This makes it possible to create multiple outputs that are all encumbered by the same hashlock and which all become spendable at the same time.
+    Um hashlock é um tipo de estorvo que restringe o gasto de uma saída até que um dado específico seja divulgado publicamente. Hashlocks têm a propriedade útil de que, uma vez que qualquer hashlock seja aberto publicamente, qualquer outro hashlock protegido usando a mesma chave também pode ser aberto. Isso torna possível criar várias saídas que são todas sobrecarregadas pelo mesmo hashlock e que se tornam gastas ao mesmo tempo.
 
-HD protocol::
-    The Hierarchical Deterministic (HD) key creation and transfer protocol (BIP-32), which allows creating child keys from parent keys in a hierarchy.
+protocolo HD::
+    O protocolo Hierárquica Determinística (HD) de transferência e criação de chave (BIP-32), que permite criar chaves filho a partir de chaves pai em uma hierarquia.
 
-HD wallet::
-    Wallets using the Hierarchical Deterministic (HD Protocol) key creation and transfer protocol (BIP-32).
+carteira HD::
+    Carteiras usando a criação de chave Hierárquica Determinística (Protocolo HD) e protocolo de transferência (BIP-32).
 
-HD wallet seed::
-    HD wallet seed or root seed is a potentially-short value used as a seed to generate the master private key and master chain code for an HD wallet.
+fundamento carteira HD::
+    Fundamento da carteira HD ou fundamento raiz é um valor potencialmente curto usado como fundamento para gerar a chave privada mestra e o código de cadeia mestre para uma carteira HD.
 
 HTLC::
-    A Hashed TimeLock Contract or HTLC is a class of payments that use hashlocks and timelocks to require that the receiver of a payment either acknowledge receiving the payment prior to a deadline by generating cryptographic proof of payment or forfeit the ability to claim the payment, returning it to the payer.
+    Um contrato Hashed TimeLock ou HTLC é uma classe de pagamentos que usa hashlocks e timelocks para exigir que o destinatário de um pagamento reconheça o recebimento do pagamento antes de um prazo, gerando prova criptográfica de pagamento ou perca a capacidade de reivindicar o pagamento, devolvendo-o para o pagador.
 
 KYC::
-    Know your customer (KYC) is the process of a business, identifying and verifying the identity of its clients. The term is also used to refer to the bank regulation which governs these activities.
+    Know your customer (KYC), Conheça seu cliente, é o processo de uma empresa, identificando e verificando a identidade de seus clientes. O termo também é usado para se referir ao regulamento bancário que rege essas atividades.
 
 LevelDB::
-    LevelDB is an open source on-disk key-value store. LevelDB is a light-weight, single-purpose library for persistence with bindings to many platforms.
+    LevelDB é um armazenamento de valores-chave em disco de código aberto. LevelDB é uma biblioteca leve e de propósito único para persistência com ligações para muitas plataformas.
 
-Lightning Networks::
-    Lightning Network is an implementation of Hashed Timelock Contracts (HTLCs) with bi-directional payment channels which allows payments to be securely routed across multiple peer-to-peer payment channels. This allows the formation of a network where any peer on the network can pay any other peer even if they don't directly have a channel open between each other.
+Lightning Networks (Rede Relâmpago)::
+    Lightning Network é uma implementação de Hashed Timelock Contracts (HTLCs) com canais de pagamento bidirecionais que permitem que os pagamentos sejam roteados com segurança em vários canais de pagamento ponto-a-ponto. Isso permite a formação de uma rede onde qualquer ponto da rede pode pagar a qualquer outro ponto, mesmo que eles não tenham um canal aberto diretamente entre eles.
 
 Locktime::
-    Locktime, or more technically nLockTime, is the part of a transaction which indicates the earliest time or earliest block when that transaction may be added to the block chain.
+    Locktime, ou mais tecnicamente nLockTime, é a parte de uma transação que indica a hora ou o bloco mais antigo quando essa transação pode ser adicionada à cadeia de blocos.
 
 mempool::
-    The bitcoin Mempool (memory pool) is a collection of all transaction data in a block that have been verified by bitcoin nodes, but are not yet confirmed.
+    O bitcoin Mempool (pool de memória) é uma coleção de todos os dados de transação em um bloco que foram verificados por nós bitcoin, mas ainda não foram confirmados.
 
 merkle root::
-    The root node of a merkle tree, a descendant of all the hashed pairs in the tree. Block headers must include a valid merkle root descended from all transactions in that block.
+    O nó raiz de uma árvore merkle, um descendente de todos os pares de hash na árvore. Os cabeçalhos de bloco devem incluir uma raiz merkle válida descendente de todas as transações naquele bloco.
 
-merkle tree::
-    A tree constructed by hashing paired data (the leaves), then pairing and hashing the results until a single hash remains, the merkle root. In Bitcoin, the leaves are almost always transactions from a single block.
+árvore merkle::
+    Uma árvore construída por hash de dados emparelhados (as folhas), em seguida, emparelhando e hash dos resultados até que um único hash permaneça, a raiz do merkle. No Bitcoin, as folhas quase sempre são transações de um único bloco.
 
-miner::
-    A network node that finds valid proof of work for new blocks, by repeated hashing.
+mineiro::
+    Um nó de rede que encontra uma prova-de-trabalho válida para novos blocos, por hash repetido.
 
 multisignature::
-    Multisignature (multisig) refers to requiring a minimum number (M) of keys (N) to authorize an M-of-N transaction.
+    Multisignature (multisig) refere-se à exigência de um número mínimo (M) de chaves (N) para autorizar uma transação M-of-N.
 
-network::
-    A peer-to-peer network that propagates transactions and blocks to every bitcoin node on the network.
+rede::
+    Uma rede ponto-a-ponto que propaga transações e blocos para cada nó bitcoin na rede.
 
 nonce::
-    The "nonce" in a bitcoin block is a 32-bit (4-byte) field whose value is set so that the hash of the block will contain a run of leading zeros. The rest of the fields may not be changed, as they have a defined meaning.
+    O "nonce" em um bloco de bitcoin é um campo de 32 bits (4 bytes) cujo valor é definido de forma que o hash do bloco contenha uma sequência de zeros à esquerda. Os demais campos não podem ser alterados, pois possuem um significado definido.
 
-off-chain transactions::
-    An off-chain transaction is the movement of value outside of the block chain. While an on-chain transaction&#x2014;usually referred to as simply __a transaction__&#x2014;modifies the blockchain and depends on the blockchain to determine its validity an off-chain transaction relies on other methods to record and validate the transaction.
+transações fora da cadeia::
+    Uma transação fora da cadeia é o movimento de valor fora da cadeia de blocos. Enquanto uma transação em cadeia&#x2014;geralmente referido como simplesmente __uma transação__&#x2014;modifica o blockchain e depende do blockchain para determinar sua validade, uma transação fora da cadeia depende de outros métodos para registrar e validar a transação.
 
 opcode::
-    Operation codes from the Bitcoin Script language which push data or perform functions within a pubkey script or signature script.
+    Códigos de operação da linguagem Bitcoin Script que enviam dados ou executam funções em um script pubkey ou script de assinatura.
 
-Open Assets protocol::
-    The Open Assets Protocol is a simple and powerful protocol built on top of the bitcoin blockchain. It allows issuance and transfer of user-created assets.
+Protocolo de Ativos Abertos::
+    O Protocolo de Ativos Abertos é um protocolo simples e poderoso construído em cima do blockchain bitcoin. Ele permite a emissão e transferência de ativos criados pelo usuário.
 
 OP_RETURN::
-    An opcode used in one of the outputs in an OP_RETURN transaction. Not to be confused with OP_RETURN transaction.
+    Um opcode usado em uma das saídas em uma transação OP_RETURN. Não deve ser confundido com a transação OP_RETURN.
 
-OP_RETURN transaction::
-    A transaction type that adds arbitrary data to a provably unspendable pubkey script that full nodes don’t have to store in their UTXO database. Not to be confused with OP_RETURN opcode.
+transação OP_RETURN::
+    Um tipo de transação que adiciona dados arbitrários a um script pubkey comprovadamente impossível de gastar que os nós completos não precisam armazenar em seu banco de dados UTXO. Não deve ser confundido com opcode OP_RETURN.
 
-orphan block::
-    Blocks whose parent block has not been processed by the local node, so they can’t be fully validated yet. Not to be confused with stale block.
+bloco órfão::
+    Blocos cujo bloco pai não foi processado pelo nó local, portanto, ainda não podem ser totalmente validados. Não deve ser confundido com bloco obsoleto.
 
-orphan transactions::
-    Transactions that can't go into the pool due to one or more missing input transactions.
+transações órfãs::
+    Transações que não podem entrar no pool devido a uma ou mais transações de entrada ausentes.
 
-output::
-    Output, transaction output, or TxOut is an output in a transaction which contains two fields: a value field for transferring zero or more satoshis and a pubkey script for indicating what conditions must be fulfilled for those satoshis to be further spent.
+output (saída)::
+    Saída, saída de transação ou TxOut é uma saída em uma transação que contém dois campos: um campo de valor para transferir zero ou mais satoshis e um script pubkey para indicar quais condições devem ser cumpridas para que esses satoshis sejam gastos posteriormente.
 
 P2PKH::
-    Transactions that pay a bitcoin address contain P2PKH or Pay To PubKey Hash scripts. An output locked by a P2PKH script can be unlocked (spent) by presenting a public key and a digital signature created by the corresponding private key.
+    As transações que pagam um endereço bitcoin contêm scripts P2PKH ou Pay To PubKey Hash. Uma saída bloqueada por um script P2PKH pode ser desbloqueada (gasta) apresentando uma chave pública e uma assinatura digital criada pela chave privada correspondente.
 
 P2SH::
-    P2SH or Pay-to-Script-Hash is a powerful new type of transaction that greatly simplifies the use of complex transaction scripts. With P2SH the complex script that details the conditions for spending the output (redeem script) is not presented in the locking script. Instead, only a hash of it is in the locking script.
+    P2SH ou Pay-to-Script-Hash é um novo tipo poderoso de transação que simplifica muito o uso de scripts de transação complexos. Com P2SH, o script complexo que detalha as condições para gastar a saída (script de resgate) não é apresentado no script de bloqueio. Em vez disso, apenas um hash dele está no script de bloqueio.
 
-P2SH address::
-    P2SH addresses are Base58Check encodings of the 20-byte hash of a script. They use the version prefix "5", which results in Base58Check-encoded addresses that start with a "3". P2SH addresses hide all of the complexity, so that the person making a payment does not see the script.
+endereço P2SH::
+    Os endereços P2SH são codificações Base58Check do hash de 20 bytes de um script. Eles usam o prefixo de versão "5", que resulta em endereços codificados por Base58Check que começam com "3". Os endereços P2SH escondem toda a complexidade, para que a pessoa que faz o pagamento não veja o script.
 
 P2WPKH::
-    The signature of a P2WPKH (Pay-to-Witness-Public-Key-Hash) contains the same information as a P2PKH spending, but is located in the witness field instead of the scriptSig field. The scriptPubKey is also modified.
+    A assinatura de um P2WPKH (Pay-to-Witness-Public-Key-Hash) contém as mesmas informações de um gasto P2PKH, mas está localizado no campo witness em vez do campo scriptSig. O scriptPubKey também é modificado.
 
 P2WSH::
-    The difference between P2SH and P2WSH (Pay-to-Witness-Script-Hash) is about the cryptographic proof location change from the scriptSig field to the witness field and the scriptPubKey that is also modified.
+    A diferença entre P2SH e P2WSH (Pay-to-Witness-Script-Hash) é sobre a alteração do local da prova criptográfica do campo scriptSig para o campo witness e o scriptPubKey que também é modificado.
 
 paper wallet::
-    In the most specific sense, a paper wallet is a document containing all of the data necessary to generate any number of Bitcoin private keys, forming a wallet of keys. However, people often use the term to mean any way of storing bitcoin offline as a physical document. This second definition also includes paper keys and redeemable codes.
+    No sentido mais específico, uma paper wallet é um documento que contém todos os dados necessários para gerar qualquer número de chaves privadas Bitcoin, formando uma carteira de chaves. No entanto, as pessoas costumam usar o termo para se referir a qualquer maneira de armazenar bitcoin offline como um documento físico. Esta segunda definição também inclui paper keys e códigos resgatáveis.
 
-passphrase::
-    A passphrase is an optional string created by the user that serves as an additional security factor protecting the seed, even when the seed is compromised by a thief. It can also be used as a form of plausible deniability, where a chosen passphrase leads to a wallet with a small amount of funds used to distract an attacker from the “real” wallet that contains the majority of funds.
-    
-payment channels::
-    A micropayment channel or payment channel is class of techniques designed to allow users to make multiple bitcoin transactions without committing all of the transactions to the bitcoin blockchain. In a typical payment channel, only two transactions are added to the block chain but an unlimited or nearly unlimited number of payments can be made between the participants.
+frase secreta::
+    Uma frase secreta é uma string opcional criada pelo usuário que serve como um fator de segurança adicional protegendo o fundamento, mesmo quando o fundamento é comprometida por um ladrão. Também pode ser usado como uma forma de negação plausível, em que uma frase-senha escolhida leva a uma carteira com uma pequena quantia de fundos usada para desviar um invasor da carteira “real” que contém a maioria dos fundos.
 
-pooled mining::
-    Pooled mining is a mining approach where multiple generating clients contribute to the generation of a block, and then split the block reward according the contributed processing power.
+canais de pagamento::
+    Um canal de micropagamento ou canal de pagamento é uma classe de técnicas projetada para permitir que os usuários façam várias transações de bitcoin sem comprometer todas as transações com o blockchain de bitcoin. Em um canal de pagamento típico, apenas duas transações são adicionadas à cadeia de blocos, mas um número ilimitado ou quase ilimitado de pagamentos pode ser feito entre os participantes.
 
-Proof-of-Stake::
-    Proof-of-Stake (PoS) is a method by which a cryptocurrency blockchain network aims to achieve distributed consensus. Proof-of-Stake asks users to prove ownership of a certain amount of currency (their "stake" in the currency).
+pool de mineração::
+    Um pool de mineração é uma abordagem de mineração em que vários clientes de geração contribuem para a geração de um bloco e, em seguida, dividem a recompensa do bloco de acordo com o poder de processamento contribuído.
 
-Proof-of-Work::
-    A piece of data that requires significant computation to find. In bitcoin, miners must find a numeric solution to the SHA256 algorithm that meets a network-wide target, the difficulty target.
+Proof-of-Stake (Prova-de-Aposta)::
+    Proof-of-Stake (PoS) é um método pelo qual uma rede de blockchain de criptomoeda visa alcançar um consenso distribuído. O Proof-of-Stake pede aos usuários que comprovem a propriedade de uma determinada quantidade de moeda (sua "aposta" na moeda).
 
-reward::
-    An amount included in each new block as a reward by the network to the miner who found the Proof-of-Work solution. It is currently 6.25 BTC per block.
+Proof-of-Work (Prova-de-Trabalho)::
+    Um dado que requer computação significativa para ser encontrado. No bitcoin, os mineiros devem encontrar uma solução numérica para o algoritmo SHA256 que atenda a um alvo de toda a rede, o alvo de dificuldade.
+
+reward (recompensa)::
+    Um valor incluído em cada novo bloco como uma recompensa pela rede ao minerador que encontrou a solução de Prova-de-Trabalho. Atualmente é 6,25 BTC por bloco.
 
 RIPEMD-160::
-    RIPEMD-160 is a 160-bit cryptographic hash function. RIPEMD-160 is a strengthened version of RIPEMD with a 160-bit hash result, and is expected to be secure for the next ten years or more.
+    RIPEMD-160 é uma função hash criptográfica de 160 bits. O RIPEMD-160 é uma versão reforçada do RIPEMD com um resultado hash de 160 bits e deve ser seguro nos próximos dez anos ou mais.
 
 satoshi::
-    A satoshi is the smallest denomination of bitcoin that can be recorded on the blockchain. It is the equivalent of 0.00000001 bitcoin and is named after the creator of Bitcoin, Satoshi Nakamoto. ((("satoshi")))
+    Um satoshi é a menor denominação de bitcoin que pode ser registrada no blockchain. É o equivalente a 0,00000001 bitcoin e tem o nome do criador do Bitcoin, Satoshi Nakamoto. ((("satoshi")))
 
 Satoshi Nakamoto::
-    Satoshi Nakamoto is the name used by the person or people who designed Bitcoin and created its original reference implementation, Bitcoin Core. As a part of the implementation, they also devised the first blockchain database. In the process they were the first to solve the double-spending problem for digital currency. Their real identity remains unknown.
+    Satoshi Nakamoto é o nome usado pela pessoa ou pessoas que projetaram o Bitcoin e criaram sua implementação de referência original, Bitcoin Core. Como parte da implementação, eles também criaram o primeiro banco de dados de blockchain. No processo, eles foram os primeiros a resolver o problema do duplo gasto com moeda digital. Sua verdadeira identidade permanece desconhecida.
 
 Script::
-    Bitcoin uses a scripting system for transactions. Forth-like, Script is simple, stack-based, and processed from left to right. It is purposefully not Turing-complete, with no loops.
+    Bitcoin usa um sistema de script para transações. Da mesma forma, o Script é simples, baseado em pilha e processado da esquerda para a direita. É propositalmente não Turing completo, sem loops.
 
-ScriptPubKey (aka pubkey script)::
-    ScriptPubKey or pubkey script, is a script included in outputs which sets the conditions that must be fulfilled for those satoshis to be spent. Data for fulfilling the conditions can be provided in a signature script.
+ScriptPubKey (também conhecido como pubkey script)::
+    ScriptPubKey ou script pubkey, é um script incluído nas saídas que define as condições que devem ser cumpridas para que esses satoshis sejam gastos. Os dados para o cumprimento das condições podem ser fornecidos em um script de assinatura.
 
-ScriptSig (aka signature script)::
-    ScriptSig or signature script, is the data generated by a spender which is almost always used as variables to satisfy a pubkey script.
+ScriptSig (também conhecido como signature script)::
+    ScriptSig ou script de assinatura, são os dados gerados por um gastador que quase sempre são usados como variáveis para satisfazer um pubkey script.
 
-secret key (aka private key)::
-	The secret number that unlocks bitcoin sent to the corresponding address.  pass:[<span class="keep-together">A secret</span>] key looks like the following:
+secret key (também conhecido como private key)::
+    O número secreto que desbloqueia o bitcoin enviado para o endereço correspondente. Uma chave pass:[<span class="keep-together">secreta</span>] se parece com o seguinte:
 +
 ----
 5J76sF8L5jTtzE96r66Sf8cka9y44wdpJjMwCxR3tzLh3ibVPxh
 ----
 
-Segregated Witness::
-    Segregated Witness is an upgrade to the Bitcoin protocol in which signature ("witness") data is separated from sender/receiver data to further optimize the structure of transactions. Segregated Witness was implemented as a soft fork; a change that technically makes Bitcoin’s protocol rules more restrictive.
+Segregated Witness (Testemunha Segregada)::
+    A Testemunha Segregada é uma atualização do protocolo Bitcoin no qual os dados de assinatura ("witness") são separados dos dados do remetente/receptor para otimizar ainda mais a estrutura das transações. O Segregated Witness foi implementado como um soft fork; uma mudança que tecnicamente torna as regras de protocolo do Bitcoin mais restritivas.
 
 SHA::
-    The Secure Hash Algorithm or SHA is a family of cryptographic hash functions published by the National Institute of Standards and Technology (NIST).
+    O Secure Hash Algorithm ou SHA é uma família de funções criptográficas de hash publicadas pelo National Institute of Standards and Technology (NIST).
 
-Simplified Payment Verification (SPV)::
-    SPV or simplified payment verification is a method for verifying that particular transactions were included in a block, without downloading the entire block. This method of verification is often used by lightweight Bitcoin clients.
+Simplified Payment Verification (SPV) (Verificação de Pagamento Simplificada)::
+    SPV ou verificação de pagamento simplificada é um método para verificar se determinadas transações foram incluídas em um bloco, sem baixar o bloco inteiro. Este método de verificação é frequentemente usado por clientes Bitcoin leves.
 
 soft fork::
-    soft fork or Soft-Forking Change is a temporary fork in the blockchain which commonly occurs when miners using non-upgraded nodes don't follow a new consensus rule their nodes don’t know about.
-    Not to be confused with fork, hard fork, software fork or Git fork.
+    Soft fork ou Soft-Forking Change é uma bifurcação temporária no blockchain que normalmente ocorre quando os mineiros que usam nós não atualizados não seguem uma nova regra de consenso sobre a qual seus nós não conhecem.
+    Não deve ser confundido com fork, hard fork, software fork ou Git fork.
 
-stale block::
-    Block that was successfully mined but that isn’t included on the current best block chain, likely because some other block at the same height had its chain extended first. Not to be confused with orphan block.
+stale block (bloco velho)::
+    Bloco que foi extraído com sucesso, mas que não está incluído na melhor corrente de bloco atual, provavelmente porque algum outro bloco na mesma altura teve sua corrente estendida primeiro. Não deve ser confundido com o bloco órfão.
 
 timelocks::
-    A timelock is a type of encumbrance that restricts the spending of some bitcoin until a specified future time or block height. Timelocks feature prominently in many Bitcoin contracts, including payment channels and hashed timelock contracts.
+    Um timelock é um tipo de estorvo que restringe o gasto de algum bitcoin até um determinado momento futuro ou altura de bloco. Os timelocks aparecem com destaque em muitos contratos Bitcoin, incluindo canais de pagamento e contratos de timelock com hash.
 
-transaction::
-    In simple terms, a transfer of bitcoin from one address to another. More precisely, a transaction is a signed data structure expressing a transfer of value. Transactions are transmitted over the bitcoin network, collected by miners, and included into blocks, made permanent on the blockchain.
+transação::
+    Em termos simples, uma transferência de bitcoin de um endereço para outro. Mais precisamente, uma transação é uma estrutura de dados assinada que expressa uma transferência de valor. As transações são transmitidas pela rede bitcoin, coletadas pelos mineiros e incluídas em blocos, tornados permanentes no blockchain.
 
-transaction pool::
-    An unordered collection of transactions that are not in blocks in the main chain, but for which we have input transactions.
+pool de transações::
+    Uma coleção não ordenada de transações que não estão em blocos na cadeia principal, mas para as quais temos transações de entrada.
 
-Turing completeness::
-    A programming language is called "Turing complete" if it can run any program that a Turing machine can run, given enough time and memory.
+Turing completeness (completude de Turing)::
+    Uma linguagem de programação é chamada de "Turing completo" se puder executar qualquer programa que uma máquina de Turing possa executar, com tempo e memória suficientes.
 
-unspent transaction output (UTXO)::
-    UTXO is an unspent transaction output that can be spent as an input in a new transaction.
+unspent transaction output (UTXO) (saída de transação não gasta)::
+    UTXO é uma saída de transação não gasta que pode ser gasta como entrada em uma nova transação.
 
-wallet::
-    Software that holds all your bitcoin addresses and secret keys. Use it to send, receive, and store your bitcoin.
+wallet (carteira)::
+    Software que contém todos os seus endereços bitcoin e chaves secretas. Use-o para enviar, receber e armazenar seu bitcoin.
 
-Wallet Import Format (WIF)::
-    WIF or Wallet Import Format is a data interchange format designed to allow exporting and importing a single private key with a flag indicating whether or not it uses a compressed public key.
+Wallet Import Format (WIF) (Formato de Importação de Carteira)::
+    WIF ou Wallet Import Format é um formato de intercâmbio de dados projetado para permitir a exportação e importação de uma única chave privada com um sinalizador indicando se ela usa ou não uma chave pública compactada.
 
-Some contributed definitions have been sourced under a CC-BY license from the https://en.bitcoin.it/wiki/Main_Page[bitcoin Wiki] or from other open source documentation sources.
+Algumas definições contribuídas foram obtidas sob uma licença CC-BY da https://en.bitcoin.it/wiki/Main_Page[bitcoin Wiki] ou de outras fontes de documentação de código aberto.
