@@ -1,4 +1,4 @@
-= Mastering Bitcoin
+= Dominando Bitcoin
 
 include::preface.asciidoc[]
 
