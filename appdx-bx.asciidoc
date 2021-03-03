@@ -1,9 +1,9 @@
 [[appdx_bx]]
 [appendix]
 
-== Bitcoin Explorer (bx) Commands
+== Comandos Bitcoin Explorer (bx)
 
-((("Bitcoin Explorer (bx) commands", id="BX18_1", range="startofrange")))Bitcoin Explorer (bx) is a command-line tool that offers a variety of commands for key management and transaction construction. It is part of the libbitcoin bitcoin library.
+((("Bitcoin Explorer (bx) commands", id="BX18_1", range="startofrange")))Bitcoin Explorer (bx) é uma ferramenta de linha de comando que oferece uma variedade de comandos para gerenciamento de chaves e construção de transações. Faz parte da biblioteca de bitcoin libbitcoin.
 
 ----
 Usage: bx COMMAND [--help]
@@ -85,13 +85,13 @@ wrap-decode
 wrap-encode
 ----
 
-For more information, see the https://github.com/libbitcoin/libbitcoin-explorer[Bitcoin Explorer homepage] and https://github.com/libbitcoin/libbitcoin-explorer/wiki[Bitcoin Explorer user documentation].
+Para obter mais informações, consulte a https://github.com/libbitcoin/libbitcoin-explorer[pagina inicial Bitcoin Explorer] e https://github.com/libbitcoin/libbitcoin-explorer/wiki[documentação do usuário Bitcoin Explorer].
 
-=== Examples of bx Command Use
+=== Exemplos de Uso do Comando bx
 
-Let's look at some examples of using Bitcoin Explorer commands to experiment with keys and addresses.
+Vejamos alguns exemplos de uso de comandos do Bitcoin Explorer para experimentar chaves e endereços.
 
-Generate a random "seed" value using the +seed+ command, which uses the operating system's random number generator. Pass the seed to the +ec-new+ command to generate a new private key. We save the standard output into the file _private_key_:
+Gere um valor de "seed" aleatório usando o comando +seed+, que usa o gerador de número aleatório do sistema operacional. Passe o seed para o comando +ec-new+ para gerar uma nova chave privada. Salvamos a saída padrão no arquivo _private_key_:
 
 ----
 $ bx seed | bx ec-new > private_key
@@ -99,7 +99,8 @@ $ cat private_key
 73096ed11ab9f1db6135857958ece7d73ea7c30862145bcc4bbc7649075de474
 ----
 
-Now, generate the public key from that private key using the +ec-to-public+ command. We pass the _private_key_ file into the standard input and save the standard output of the command into a new file _public_key_:
+Agora, gere a chave pública a partir dessa chave privada usando o comando +ec-to-public+. Passamos o arquivo _private_key_ na entrada padrão e salvamos a saída padrão do comando em um novo arquivo _public_key_:
+
 
 ----
 $ bx ec-to-public < private_key > public_key
@@ -107,16 +108,16 @@ $ cat public_key
 02fca46a6006a62dfdd2dbb2149359d0d97a04f430f12a7626dd409256c12be500
 ----
 
-We can reformat the +public_key+ as an address using the +ec-to-address+ command. We pass the _public_key_ into standard input:
+Podemos reformatar a +public_key+ como um endereço usando o comando +ec-to-address+. Passamos a _public_key_ na entrada padrão:
 
 ----
 $ bx ec-to-address < public_key
 17re1S4Q8ZHyCP8Kw7xQad1Lr6XUzWUnkG
 ----
 
-Keys generated in this manner produce a type-0 nondeterministic wallet. That means that each key is generated from an independent seed. Bitcoin Explorer commands can also generate keys deterministically, in accordance with BIP-32. In this case, a "master" key is created from a seed and then extended deterministically to produce a tree of subkeys, resulting in a type-2 deterministic wallet.
+As chaves geradas dessa maneira produzem uma carteira não determinística do tipo 0. Isso significa que cada chave é gerada a partir de uma seed independente. Os comandos do Bitcoin Explorer também podem gerar chaves deterministicamente, de acordo com o BIP-32. Nesse caso, uma chave "mestra" é criada a partir de uma semente e então estendida deterministicamente para produzir uma árvore de subchaves, resultando em uma carteira determinística tipo 2.
 
-First, we use the +seed+ and +hd-new+ commands to generate a master key that will be used as the basis to derive a hierarchy of keys:
+Primeiro, usamos os comandos +seed+ e +hd-new+ para gerar uma chave mestra que será usada como base para derivar uma hierarquia de chaves:
 
 ----
 $ bx seed > seed
@@ -128,7 +129,7 @@ $ cat master
 xprv9s21ZrQH143K2BEhMYpNQoUvAgiEjArAVaZaCTgsaGe6LsAnwubeiTcDzd23mAoyizm9cApe51gNfLMkBqkYoWWMCRwzfuJk8RwF1SVEpAQ
 ----
 
-We now use the +hd-private+ command to generate a hardened "account" key and a sequence of two private keys within the account:
+Agora usamos o comando +hd-private+ para gerar uma chave de "conta" reforçada e uma sequência de duas chaves privadas dentro da conta:
 
 ----
 $ bx hd-private --hard < master > account
@@ -142,7 +143,7 @@ $ bx hd-private --index 1 < account
 xprv9xHfb6w1vX9xjc8XbN4GN86jzNAZ6xHEqYxzbLB4fzHFd6VqCLPGRZFsdjsuMVERadbgDbziCRJru9n6tzEWrASVpEdrZrFidt1RDfn4yA3
 ----
 
-Next, we use the +hd-public+ command to generate the corresponding sequence of two public keys:
+Em seguida, usamos o comando +hd-public+ para gerar a sequência correspondente de duas chaves públicas:
 
 ----
 $ bx hd-public --index 0 < account
@@ -152,7 +153,7 @@ $ bx hd-public --index 1 < account
 xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8
 ----
 
-The public keys can also be derived from their corresponding private keys using the +hd-to-public+ command:
+As chaves públicas também podem ser derivadas de suas chaves privadas correspondentes usando o comando +hd-to-public+:
 
 ----
 $ bx hd-private --index 0 < account | bx hd-to-public
@@ -162,20 +163,20 @@ $ bx hd-private --index 1 < account | bx hd-to-public
 xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8
 ----
 
-We can generate a practically limitless number of keys in a deterministic chain, all derived from a single seed. This technique is used in many wallet applications to generate keys that can be backed up and restored with a single seed value. This is easier than having to back up the wallet with all its randomly generated keys every time a new key is created.
+Podemos gerar um número praticamente ilimitado de chaves em uma cadeia determinística, todas derivadas de uma única seed. Essa técnica é usada em muitos aplicativos de carteira para gerar chaves que podem ser copiadas e restauradas com um único valor inicial. Isso é mais fácil do que fazer backup da carteira com todas as suas chaves geradas aleatoriamente sempre que uma nova chave é criada.
 
-The seed can be encoded using the +mnemonic-encode+ command:
+A seed pode ser codificada usando o comando +mnemonic-encode+:
 
 ----
 $ bx hd-mnemonic < seed > words
 adore repeat vision worst especially veil inch woman cast recall dwell appreciate
 ----
 
-The seed can then be decoded using the +mnemonic-decode+ command:
+A seed pode então ser decodificada usando o comando +mnemonic-decode+:
 
 ----
 $ bx mnemonic-decode < words
 eb68ee9f3df6bd4441a9feadec179ff1
 ----
 
-Mnemonic encoding can make the seed easier to record and even remember.(((range="endofrange", startref="BX18_1")))
+codificação mnemônica pode tornar a seed mais fácil de gravar e até mesmo lembrar.(((range="endofrange", startref="BX18_1")))

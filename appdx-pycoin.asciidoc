@@ -1,17 +1,17 @@
 [[appdx-pycoin]]
 [appendix]
-== pycoin, ku, and tx
+== pycoin, ku, e tx
 
 
-((("pycoin library")))The Python library http://github.com/richardkiss/pycoin[+pycoin+], originally written and maintained by Richard Kiss, is a Python-based library that supports manipulation of bitcoin keys and transactions, even supporting the scripting language enough to properly deal with nonstandard transactions.
+((("pycoin library")))A biblioteca Python http://github.com/richardkiss/pycoin[+pycoin+], originalmente escrito e mantido por Richard Kiss, é uma biblioteca baseada em Python que suporta a manipulação de chaves e transações bitcoin, até mesmo suportando a linguagem de script o suficiente para lidar adequadamente com transações fora do padrão.
 
-The pycoin library supports both Python 2 (2.7.x) and Python 3 (3.3 and later) and comes with some handy command-line utilities, +ku+ and +tx+.
+A biblioteca pycoin suporta Python 2 (2.7.x) e Python 3 (3.3 e posterior) e vem com alguns utilitários de linha de comando úteis, +ku+ e +tx+.
 
-=== Key Utility (KU)
+=== Key Utility (KU) (Utilitário de Chave)
 
-((("key utility (ku)", id="keyutil17")))The command-line utility +ku+ ("key utility") is a Swiss Army knife for manipulating keys. It supports BIP-32 keys, WIF, and addresses (bitcoin and alt coins). Following are some examples.
+((("key utility (ku)", id="keyutil17")))O utilitário de linha de comando +ku+ ("utilitário de chave") é um canivete suíço para manipular chaves. Suporta chaves BIP-32, WIF e endereços (bitcoin e moedas alternativas). A seguir estão alguns exemplos.
 
-Create a BIP-32 key using the default entropy sources of GPG and _/dev/random_:
+Crie uma chave BIP-32 usando as fontes de entropia padrão de GPG e _/dev/random_:
 
 
 ----
@@ -47,11 +47,11 @@ Bitcoin address : 1FNNRQ5fSv1wBi5gyfVBs2rkNheMGt86sp
  uncompressed   : 1DSS5isnH4FsVaLVjeVXewVSpfqktdiQAM
 ----
 
-Create a BIP-32 key from a passphrase:
+Crie uma chave BIP-32 a partir de uma senha longa:
 
 [WARNING]
 ====
-The passphrase in this example is way too easy to guess.
+A frase secreta neste exemplo é muito fácil de adivinhar.
 ====
 
 ----
@@ -88,7 +88,7 @@ Bitcoin address : 19Vqc8uLTfUonmxUEZac7fz1M5c5ZZbAii
 ----
 
 
-Get info as JSON:
+Obtenha informações como JSON:
 
 
 ----
@@ -120,21 +120,21 @@ $ ku P:foo -P -j
 }
 ----
 
-Public BIP32 key:
+Chave pública BIP32:
 
 ----
 $ ku -w -P P:foo
 xpub661MyMwAqRbcFVF9ULcqLdsEa5WnCCugQAcgNd9iEMQ31tgH6u4DLQWoQayvtSVYFvXz2vPPpbXE1qpjoUFidhjFj82pVShWu9curWmb2zy
 ----
 
-Generate a subkey:
+Gere uma subchave:
 
 ----
 $ ku -w -s3/2 P:foo
 xprv9wTErTSkjVyJa1v4cUTFMFkWMe5eu8ErbQcs9xajnsUzCBT7ykHAwdrxvG3g3f6BFk7ms5hHBvmbdutNmyg6iogWKxx6mefEw4M8EroLgKj
 ----
 
-Hardened subkey:
+Subchave endurecida:
 
 ----
 $ ku -w -s3/2H P:foo
@@ -148,7 +148,7 @@ $ ku -W P:foo
 L26c3H6jEPVSqAr1usXUp9qtQJw6NHgApq6Ls4ncyqtsvcq2MwKH
 ----
 
-Address:
+Endereço:
 
 
 ----
@@ -158,7 +158,7 @@ $ ku -a P:foo
 
 
 
-Generate a bunch of subkeys:
+Gere várias subchaves:
 
 
 ----
@@ -172,7 +172,7 @@ xprv9xWkBDfyBXmZw4jEYXUHYc9fT25k9irP87n2RqfJ5bqbjKdT84Mm7Wtc2xmzFuKg7iYf7XFHKkSs
 ----
 
 [role="pagebreak-before"]
-Generate the corresponding addresses:
+Gere os endereços correspondentes:
 
 
 ----
@@ -186,7 +186,7 @@ $ ku P:foo -s 0/0-5 -a
 ----
 
 
-Generate the corresponding WIFs:
+Gere os WIFs correspondentes:
 
 
 ----
@@ -201,7 +201,7 @@ KzChTbc3kZFxUSJ3Kt54cxsogeFAD9CCM4zGB22si8nfKcThQn8C
 
 
 
-Check that it works by choosing a BIP32 string (the one corresponding to subkey 0/3):
+Verifique se funciona escolhendo uma string BIP32 (aquela correspondente à subchave 0/3):
 
 
 
@@ -213,9 +213,9 @@ $ ku -a xprv9xWkBDfyBXmZsA85GyWj9uYPyoQv826YAadKWMaaEosNrFBKgj2TqWuiWY3zuqxYGpHf
 ----
 
 
-Yep, looks familiar.
+Sim, parece familiar.
 
-From secret exponent:
+Do expoente secreto:
 
 
 ----
@@ -242,7 +242,7 @@ Bitcoin address : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
 ----
 
 
-Litecoin version:
+Versão Litecoin:
 
 
 ----
@@ -278,7 +278,7 @@ QNcdLVw8fHkixm6NNyN6nVwxKek4u7qrioRbQmjxac5TVoTtZuot
 ----
 
 
-From public pair (on Testnet):
+Do par público (em Testnet):
 
 
 ----
@@ -302,7 +302,7 @@ Bitcoin testnet address : mrCDrCybB6J1vRfbwM5hemdJz73FwDBC8r
 ----
 
 
-From hash160:
+A partir de hash160:
 
 
 ----
@@ -315,7 +315,7 @@ Bitcoin address : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
 ----
 
 
-((("", startref="pycoin library")))As a Dogecoin address:
+((("", startref="pycoin library")))Como um endereço Dogecoin:
 
 
 ----
@@ -327,15 +327,15 @@ hash160          : 751e76e8199196d454941c45d1b3a323f1433bd6
 Dogecoin address : DFpN6QqFfUm3gKNaxN6tNcab1FArL9cZLE
 ----
 
-==== Transaction Utility (TX)
+==== Transaction Utility (TX) (Utilitário de Transação)
 
 ((("transaction utility (TX)", id="TX17")))
-The command-line utility +tx+ will display transactions in human-readable form, fetch base transactions from pycoin's transaction cache or from web services (blockchain.info, blockcypher.com, blockr.io and chain.so are currently supported), merge transactions, add or delete inputs or outputs, and sign transactions.
+O utilitário de linha de comando +tx+ exibirá transações em formato legível por humanos, buscará transações básicas do cache de transações do pycoin ou de serviços da web (blockchain.info, blockcypher.com, blockr.io e chain.so são atualmente suportados), mesclar transações , adicionar ou excluir entradas ou saídas e assinar transações.
 
-Following are some examples.
+A seguir estão alguns exemplos.
 
 
-View the famous "pizza" transaction:
+Veja a famosa transação "pizza":
 
 
 ----
@@ -352,7 +352,7 @@ tx: error: can't find Tx with id 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833
 ----
 
 
-Oops! We don't have web services set up. Let's do that now:
+Ops! Não temos serviços da web configurados. Vamos fazer isso agora:
 
 
 [source,bash]
@@ -363,9 +363,9 @@ $ export PYCOIN_CACHE_DIR PYCOIN_BTC_PROVIDERS
 ----
 
 
-It's not done automatically so a command-line tool won't leak potentially private information about what transactions you're interested in to a third-party website. If you don't care, you could put these lines into your _.profile_.
+Isso não é feito automaticamente, portanto, uma ferramenta de linha de comando não vaza informações potencialmente privadas sobre quais transações você está interessado em um site de terceiros. Se você não se importar, você pode colocar essas linhas em seu _.profile_.
 
-Let's try again:
+Vamos tentar de novo:
 
 ----
 $ tx 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
@@ -383,7 +383,8 @@ including unspents in hex dump since transaction not fully signed
 ** can't validate transaction as source transactions missing
 ----
 
-The final line appears because to validate the transactions' signatures, you technically need the source transactions. So let's add +-a+ to augment the transactions with source information:
+A linha final aparece porque para validar as assinaturas das transações, você tecnicamente precisa das transações de origem. Então, vamos adicionar +-a+ para aumentar as transações com informações de origem:
+
 
 ----
 $ tx -a 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
@@ -405,7 +406,7 @@ Total fees        0.00000 mBTC
 all incoming transaction values validated
 ----
 
-((("", startref="TX17")))Now, let's look at unspent outputs for a specific address (UTXO). In block #1, we see a coinbase transaction to +12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX+. Let's use +fetch_unspent+ to find all coins in this address:
+((("", startref="TX17")))Agora, vamos examinar as saídas não gastas para um endereço específico (UTXO). No bloco 1, vemos uma transação coinbase para +12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX+. Vamos usar +fetch_unspent+ para encontrar todas as moedas neste endereço:
 
 ----
 $ fetch_unspent 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX
