@@ -1,9 +1,9 @@
 [[github_contrib]]
-==== Early Release Draft (GitHub Contributions)
+==== Rascunho de Versão Anterior (Contribuições do GitHub)
 
-Many contributors offered comments, corrections, and additions to the early-release draft on GitHub. Thank you all for your contributions to this book.
+Muitos contribuidores ofereceram comentários, correções e acréscimos ao rascunho do lançamento inicial no GitHub. Obrigado a todos por suas contribuições para este livro.
 
-The following is a list of notable GitHub contributors:
+A seguir está uma lista de contribuidores notáveis ​​do GitHub:
 
 * Abdussamad Abdurrazzaq (AbdussamadA)
 * Adán SDPC (aesedepece)
