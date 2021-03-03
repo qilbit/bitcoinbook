@@ -89,8 +89,8 @@ protocolo HD::
 carteira HD::
     Carteiras usando a criação de chave Hierárquica Determinística (Protocolo HD) e protocolo de transferência (BIP-32).
 
-fundamento carteira HD::
-    Fundamento da carteira HD ou fundamento raiz é um valor potencialmente curto usado como fundamento para gerar a chave privada mestra e o código de cadeia mestre para uma carteira HD.
+HD wallet seed (seed de carteira HD)::
+    Seed de carteira HD ou seed raiz é um valor potencialmente curto usado como fundamento para gerar a chave privada mestra e o código de cadeia mestre para uma carteira HD.
 
 HTLC::
     Um contrato Hashed TimeLock ou HTLC é uma classe de pagamentos que usa hashlocks e timelocks para exigir que o destinatário de um pagamento reconheça o recebimento do pagamento antes de um prazo, gerando prova criptográfica de pagamento ou perca a capacidade de reivindicar o pagamento, devolvendo-o para o pagador.
@@ -171,7 +171,7 @@ paper wallet::
     No sentido mais específico, uma paper wallet é um documento que contém todos os dados necessários para gerar qualquer número de chaves privadas Bitcoin, formando uma carteira de chaves. No entanto, as pessoas costumam usar o termo para se referir a qualquer maneira de armazenar bitcoin offline como um documento físico. Esta segunda definição também inclui paper keys e códigos resgatáveis.
 
 frase secreta::
-    Uma frase secreta é uma string opcional criada pelo usuário que serve como um fator de segurança adicional protegendo o fundamento, mesmo quando o fundamento é comprometida por um ladrão. Também pode ser usado como uma forma de negação plausível, em que uma frase-senha escolhida leva a uma carteira com uma pequena quantia de fundos usada para desviar um invasor da carteira “real” que contém a maioria dos fundos.
+    Uma frase secreta é uma string opcional criada pelo usuário que serve como um fator de segurança adicional protegendo o seed, mesmo quando seed é comprometida por um ladrão. Também pode ser usado como uma forma de negação plausível, em que uma frase-senha escolhida leva a uma carteira com uma pequena quantia de fundos usada para desviar um invasor da carteira “real” que contém a maioria dos fundos.
 
 canais de pagamento::
     Um canal de micropagamento ou canal de pagamento é uma classe de técnicas projetada para permitir que os usuários façam várias transações de bitcoin sem comprometer todas as transações com o blockchain de bitcoin. Em um canal de pagamento típico, apenas duas transações são adicionadas à cadeia de blocos, mas um número ilimitado ou quase ilimitado de pagamentos pode ser feito entre os participantes.
